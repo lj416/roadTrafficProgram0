@@ -1,0 +1,14 @@
+﻿Road_1_2048
+Road_1_256
+Road_2_2048
+Road_2_256
+Road_3_2048
+Road_3_256
+
+
+public static ReadTextFiles road_1_2048 = new ReadTextFiles(road_1_2048);
+public static ReadTextFiles road_1_256 = new ReadTextFiles(road_1_256);
+public static ReadTextFiles road_2_2048 = new ReadTextFiles(road_2_2048);
+public static ReadTextFiles road_2_256 = new ReadTextFiles(road_2_256);
+public static ReadTextFiles road_3_2048 = new ReadTextFiles(road_3_2048);
+public static ReadTextFiles road_3_256 = new ReadTextFiles(road_3_256);
