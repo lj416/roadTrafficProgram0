@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram.csproj",
+      "projectUniqueName": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram0/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram.csproj",
       "projectName": "roadTrafficProgram",
-      "projectPath": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram.csproj",
+      "projectPath": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram0/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram.csproj",
       "packagesPath": "/Users/lj/.nuget/packages/",
-      "outputPath": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram/roadTrafficProgram/roadTrafficProgram/obj/",
+      "outputPath": "/Users/lj/OneDrive - University of Lincoln/csharpprojects/roadTrafficProgram0/roadTrafficProgram/roadTrafficProgram/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/lj/.nuget/NuGet/NuGet.Config"
