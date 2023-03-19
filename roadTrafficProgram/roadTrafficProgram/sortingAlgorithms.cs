@@ -8,9 +8,7 @@ namespace roadTrafficProgram
 {
 	public class sortingAlgorithms
 	{
-		public sortingAlgorithms()
-		{
-		}
+		public int[]? readSortingAlgorithms { get; set; }
 
 		public int[] bubbleSort(int[] arrayOfIntegers)
 		{
@@ -33,6 +31,27 @@ namespace roadTrafficProgram
 			return arrayOfIntegers;
 
 		}
+
+		public int[] insertionSort(int[] arrayOfIntegers)
+		{
+			//i=h
+			//j=k
+			for (int j = 0; j < arrayOfIntegers.Length; j++)
+			{
+				int nextItem = arrayOfIntegers[j];
+				int i = j - 1;
+
+				while (i >= 0 && arrayOfIntegers[i] > nextItem)
+				{
+					arrayOfIntegers[i + 1] = arrayOfIntegers[i];
+					i = i + 1;
+				}
+				arrayOfIntegers[i + 1] = nextItem;
+
+			}
+			return arrayOfIntegers;
+		}
+
 	}
 }
 

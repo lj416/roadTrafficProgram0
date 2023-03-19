@@ -12,6 +12,7 @@ namespace roadTrafficProgram
     {
         static void Main(string[] args)
         {
+            //initialise short road txt files
             ReadTextFiles road_1_256 = new ReadTextFiles();
             ReadTextFiles road_2_256 = new ReadTextFiles();
             ReadTextFiles road_3_256 = new ReadTextFiles();

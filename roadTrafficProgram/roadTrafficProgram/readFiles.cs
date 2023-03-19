@@ -11,9 +11,9 @@ namespace roadTrafficProgram
 
 		public string[] readFiles(string fileName)
 		{
-			fileName = fileName + ".txt";
-			string[] readRoadFiles = File.ReadAllLines(fileName);
-			return readRoadFiles;
+			fileName = fileName + ".txt"; //allows this method to work with any file name
+            string[] readRoadFiles = File.ReadAllLines(fileName);
+			return readRoadFiles; //returns a string
 		}
 
 		
