@@ -23,11 +23,12 @@ namespace roadTrafficProgram
             int[] Road_3_256_textfile = road_3_256.readFiles("Road_3_256");
 
             //iterates through the array to output all values, otherwise it outputs System.string[]
+            /*
             foreach (var value in Road_1_256_textfile)
             {
                 Console.WriteLine(value);
             }
-
+            */
 
             //bubble sort for the 3 arrays
             
@@ -49,16 +50,25 @@ namespace roadTrafficProgram
             
             */
             //insertion sort
-            
+
+            /*
             a_road_1_256.insertionSort(Road_1_256_textfile);
             a_road_2_256.insertionSort(Road_2_256_textfile);
             a_road_3_256.insertionSort(Road_3_256_textfile);
+            */
 
             foreach (var value in Road_1_256_textfile)
             {
                 Console.WriteLine(value);
             }
-
+            a_road_1_256.mergeSort(Road_1_256_textfile);
+            a_road_2_256.mergeSort(Road_2_256_textfile);
+            a_road_3_256.mergeSort(Road_3_256_textfile);
+            Console.WriteLine("--------------merge sort-------------");
+            foreach (var value in Road_1_256_textfile)
+            {
+                Console.WriteLine(value);
+            }
 
         }
     }

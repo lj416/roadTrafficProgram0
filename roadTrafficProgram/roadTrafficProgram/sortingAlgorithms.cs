@@ -9,20 +9,16 @@ namespace roadTrafficProgram
 
 	public class sortingAlgorithms
 	{
-        //public static List<ReadTextFiles> Road_1_256_textfile = new List<ReadTextFiles>();
-        //public static List<ReadTextFiles> Road_2_256_textfile = new List<ReadTextFiles>();
-        //public static List<ReadTextFiles> Road_3_256_textfile = new List<ReadTextFiles>();
-
         public int[]? readSortingAlgorithms { get; set; }
 
 		public int[] bubbleSort(int[] arrayOfIntegers)
 		{
-			int n = arrayOfIntegers.Length;
-			int passCount = 0;
+            int lengthOfList = arrayOfIntegers.Length;
+            int passCount = 0;
 
-			for (int i = 0; i < n-1; i++)
+			for (int i = 0; i < lengthOfList - 1; i++)
 			{
-				for (int j = 0; j < n - i - 1; j++)
+				for (int j = 0; j < lengthOfList - i - 1; j++)
 				{
 					if (arrayOfIntegers[j] > arrayOfIntegers[j + 1])
 					{
@@ -65,6 +61,79 @@ namespace roadTrafficProgram
             Console.WriteLine("-------------------------");
             return arrayOfIntegers;
 		}
+
+		public int[] mergeSort(int[] arrayOfIntegers)
+		{
+            int lengthOfList = arrayOfIntegers.Length;
+            int mid = lengthOfList / 2;
+			int i = 0;
+			int[] leftHalf = { };
+			int[] rightHalf = { };
+			/*
+			while (i < mid)
+			{
+
+                leftHalf.Append(arrayOfIntegers[i]);
+				i++;
+            }
+
+			while (mid < lengthOfList)
+			{
+				rightHalf.Append(arrayOfIntegers[mid]);
+				mid++;
+			}
+			*/
+
+            if (lengthOfList > 1)
+			{
+                while (i < mid)
+                {
+
+                    leftHalf.Append(arrayOfIntegers[i]);
+                    i++;
+                }
+
+                while (mid < lengthOfList)
+                {
+                    rightHalf.Append(arrayOfIntegers[mid]);
+                    mid++;
+                }
+
+				i = 0;
+				int j = 0;
+				int k = 0;
+
+				while (i < leftHalf.Length && j < rightHalf.Length)
+				{
+					if (leftHalf[i] < rightHalf[j])
+					{
+						arrayOfIntegers[k] = leftHalf[i];
+						i++;
+					}
+					else
+					{
+						arrayOfIntegers[k] = leftHalf[i];
+						j++;
+					}
+					k++;
+				}
+				while (i < leftHalf.Length)
+				{
+					arrayOfIntegers[k] = leftHalf[i];
+					i++;
+					k++;
+				}
+				while (j < rightHalf.Length)
+				{
+					arrayOfIntegers[k] = rightHalf[j];
+					j++;
+					k++;
+				}
+
+            }
+
+			return arrayOfIntegers;
+        }
 
 	}
 }
