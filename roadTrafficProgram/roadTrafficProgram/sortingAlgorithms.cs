@@ -6,50 +6,64 @@ using System.Threading.Tasks;
 
 namespace roadTrafficProgram
 {
+
 	public class sortingAlgorithms
 	{
-		public int[]? readSortingAlgorithms { get; set; }
+        //public static List<ReadTextFiles> Road_1_256_textfile = new List<ReadTextFiles>();
+        //public static List<ReadTextFiles> Road_2_256_textfile = new List<ReadTextFiles>();
+        //public static List<ReadTextFiles> Road_3_256_textfile = new List<ReadTextFiles>();
+
+        public int[]? readSortingAlgorithms { get; set; }
 
 		public int[] bubbleSort(int[] arrayOfIntegers)
 		{
 			int n = arrayOfIntegers.Length;
+			int passCount = 0;
 
 			for (int i = 0; i < n-1; i++)
 			{
 				for (int j = 0; j < n - i - 1; j++)
 				{
-					if (arrayOfIntegers[j] < arrayOfIntegers[j + 1])
+					if (arrayOfIntegers[j] > arrayOfIntegers[j + 1])
 					{
-						int temp = arrayOfIntegers[j];
+                        int temp = arrayOfIntegers[j];
 						arrayOfIntegers[j] = arrayOfIntegers[j + 1];
 						arrayOfIntegers[j + 1] = temp;
+						passCount = passCount + 1;
+
 					}
 				}
 
 			}
+			Console.WriteLine("-------------------------");
+			Console.WriteLine("Pass count is "+ passCount);
+            Console.WriteLine("-------------------------");
 
-			return arrayOfIntegers;
+            return arrayOfIntegers;
 
 		}
 
 		public int[] insertionSort(int[] arrayOfIntegers)
 		{
-			//i=h
-			//j=k
-			for (int j = 0; j < arrayOfIntegers.Length; j++)
+			int lengthOfList = arrayOfIntegers.Length;
+			int passCount = 0;
+			for (int i = 0; i < lengthOfList; i++)
 			{
-				int nextItem = arrayOfIntegers[j];
-				int i = j - 1;
+				int currentValue = arrayOfIntegers[i];
+				int position = i;
 
-				while (i >= 0 && arrayOfIntegers[i] > nextItem)
+				while (position > 0 && arrayOfIntegers[position - 1] > currentValue)
 				{
-					arrayOfIntegers[i + 1] = arrayOfIntegers[i];
-					i = i + 1;
+					arrayOfIntegers[position] = arrayOfIntegers[position - 1];
+					position = position - 1;
 				}
-				arrayOfIntegers[i + 1] = nextItem;
-
+				arrayOfIntegers[position] = currentValue;
+				passCount = passCount + 1;
 			}
-			return arrayOfIntegers;
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Pass count is " + passCount);
+            Console.WriteLine("-------------------------");
+            return arrayOfIntegers;
 		}
 
 	}

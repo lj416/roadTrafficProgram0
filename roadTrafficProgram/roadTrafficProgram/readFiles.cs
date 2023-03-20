@@ -9,11 +9,19 @@ namespace roadTrafficProgram
 	public class ReadTextFiles
 	{
 
-		public string[] readFiles(string fileName)
+		public int[] readFiles(string fileName)
 		{
 			fileName = fileName + ".txt"; //allows this method to work with any file name
             string[] readRoadFiles = File.ReadAllLines(fileName);
-			return readRoadFiles; //returns a string
+
+			int[] convertedRoadFiles = Array.ConvertAll(readRoadFiles, int.Parse);
+			/*
+			foreach (string value in readRoadFiles)
+            {
+				
+            }
+			*/
+            return convertedRoadFiles; //returns an integer array
 		}
 
 		
