@@ -3,7 +3,7 @@ namespace roadTrafficProgram
 {
 	public class searchingAlgorithms
 	{
-		public searchingAlgorithms()
+		public void sequentialSearch()
 		{
 		}
 	}

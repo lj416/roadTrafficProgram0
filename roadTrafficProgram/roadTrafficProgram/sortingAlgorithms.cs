@@ -12,6 +12,8 @@ namespace roadTrafficProgram
 		public static int mergeCounter;
         public int[]? readSortingAlgorithms { get; set; }
 
+
+		//BUBBLE SORT
 		public int[] bubbleSort(int[] arrayOfIntegers) //asc
 		{
             int lengthOfList = arrayOfIntegers.Length;
@@ -40,6 +42,7 @@ namespace roadTrafficProgram
 
 		}
 
+		//REVERSE BUBBLE SORT
         public int[] reverseBubbleSort(int[] arrayOfIntegers) //should reverse sort
         { //desc
             int lengthOfList = arrayOfIntegers.Length;
@@ -68,6 +71,7 @@ namespace roadTrafficProgram
 
         }
 
+		//INSERTION SORT
         public int[] insertionSort(int[] arrayOfIntegers)
 		{
 			int lengthOfList = arrayOfIntegers.Length;
@@ -91,6 +95,7 @@ namespace roadTrafficProgram
             return arrayOfIntegers;
 		}
 
+		//REVERSE INSERTION SORT
         public int[] reverseInsertionSort(int[] arrayOfIntegers)
         {
             int lengthOfList = arrayOfIntegers.Length;
@@ -114,6 +119,8 @@ namespace roadTrafficProgram
             return arrayOfIntegers;
         }
 
+
+		//MERGE ARRAYS FOR MERGE SORT
         public void mergeArray(int[] arrayOfIntegers, int left, int middle, int right)
 		{
 			int lengthLeftArray = middle - left + 1;
@@ -164,7 +171,7 @@ namespace roadTrafficProgram
 
         }
 
-
+		//MAIN MERGE SORT
 		public int[] mergeSort(int[] arrayOfIntegers, int left, int right)
 		{
 			if (left < right)
@@ -184,6 +191,55 @@ namespace roadTrafficProgram
             
         }
 
+		//QUICK SORT
+		public int quickSortPartition(int[] arrayOfIntegers, int start, int end)
+		{
+			int pivot = arrayOfIntegers[start];
+			int leftPointer = start + 1;
+			int rightPointer = end;
+
+			bool done = false;
+
+			while (done == false)
+			{
+				while (leftPointer <= rightPointer && arrayOfIntegers[leftPointer] <= pivot)
+				{
+					leftPointer++;
+				}
+				while (arrayOfIntegers[rightPointer] >= pivot && rightPointer >= leftPointer)
+				{
+					rightPointer--;
+				}
+
+				if (rightPointer < leftPointer)
+				{
+					done = true;
+				}
+				else
+				{
+					int temp1 = arrayOfIntegers[leftPointer];
+					arrayOfIntegers[leftPointer] = arrayOfIntegers[rightPointer];
+					arrayOfIntegers[rightPointer] = temp1;
+				}
+			}
+
+			int temp2 = arrayOfIntegers[start];
+			arrayOfIntegers[start] = arrayOfIntegers[rightPointer];
+			arrayOfIntegers[rightPointer] = temp2;
+			return rightPointer;
+		}
+
+		//MAIN QUICK SORT
+		public int[] quickSort(int[] arrayOfIntegers, int start, int end)
+		{
+			if (start < end)
+			{
+				int split = quickSortPartition(arrayOfIntegers, start, end);
+				quickSort(arrayOfIntegers, start, split - 1);
+				quickSort(arrayOfIntegers, split + 1, end);
+			}
+			return arrayOfIntegers;
+		}
 	}
 }
 
