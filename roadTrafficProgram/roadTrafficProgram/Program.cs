@@ -226,7 +226,62 @@ namespace roadTrafficProgram
                 }
                 else if (sortChoice == "3") //merge sort
                 {
+                    while (validFileFlag = true)
+                    {
+                        Console.WriteLine("--SELECT FILE--");
+                        Console.WriteLine("1. Road_1_256");
+                        Console.WriteLine("2. Road_2_256");
+                        Console.WriteLine("3. Road_3_256");
+                        Console.WriteLine("4. Road_1_2048");
+                        Console.WriteLine("5. Road_2_2048");
+                        Console.WriteLine("6. Road_3_2048");
+                        Console.Write("Enter an option 1-3.");
+                        string fileChoice = Console.ReadLine();
 
+                        if (fileChoice == "1")
+                        {
+                            sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
+                            a_road_1_256.mergeSort(Road_1_256_textfile, 0, 255);
+                            break;
+                        }
+                        else if (fileChoice == "2")
+                        {
+                            sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
+                            a_road_2_256.mergeSort(Road_2_256_textfile, 0, 255);
+                            break;
+                        }
+                        else if (fileChoice == "3")
+                        {
+                            sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
+                            a_road_3_256.mergeSort(Road_3_256_textfile, 0, 255);
+                            break;
+                        }
+                        else if (fileChoice == "4")
+                        {
+                            sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
+                            a_road_1_2048.insertionSort(Road_1_2048_textfile);
+                            a_road_1_2048.mergeSort(Road_1_2048_textfile, 0, 255);
+                            break;
+                        }
+                        else if (fileChoice == "5")
+                        {
+                            sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
+                            a_road_2_2048.insertionSort(Road_2_2048_textfile);
+                            a_road_2_2048.mergeSort(Road_2_2048_textfile, 0, 255);
+                            break;
+                        }
+                        else if (fileChoice == "6")
+                        {
+                            sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
+                            a_road_3_2048.insertionSort(Road_3_2048_textfile);
+                            a_road_3_2048.mergeSort(Road_3_2048_textfile, 0, 255);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input, try again.");
+                        }
+                    }
                 }
                 else if (sortChoice == "4") //insertion sort
                 {
