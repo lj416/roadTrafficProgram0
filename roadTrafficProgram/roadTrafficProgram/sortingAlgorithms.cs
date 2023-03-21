@@ -62,77 +62,70 @@ namespace roadTrafficProgram
             return arrayOfIntegers;
 		}
 
-		public int[] mergeSort(int[] arrayOfIntegers)
+		public void mergeArray(int[] arrayOfIntegers, int left, int middle, int right)
 		{
-            int lengthOfList = arrayOfIntegers.Length;
-            int mid = lengthOfList / 2;
-			int i = 0;
-			int[] leftHalf = { };
-			int[] rightHalf = { };
-			/*
-			while (i < mid)
-			{
+			int lengthLeftArray = middle - left + 1;
+			int lengthRightArray = right - middle;
 
-                leftHalf.Append(arrayOfIntegers[i]);
-				i++;
-            }
+			int i;
+			int j;
 
-			while (mid < lengthOfList)
+            var leftTempArray = new int[lengthLeftArray];
+            var rightTempArray = new int[lengthRightArray];
+
+			for (i = 0; i < lengthLeftArray; i++)
 			{
-				rightHalf.Append(arrayOfIntegers[mid]);
-				mid++;
+				leftTempArray[i] = arrayOfIntegers[left + i];
 			}
-			*/
 
-            if (lengthOfList > 1)
+			for (j = 0; j < lengthRightArray; j++)
 			{
-                while (i < mid)
-                {
+				rightTempArray[j] = arrayOfIntegers[middle + 1 + j];
+			}
 
-                    leftHalf.Append(arrayOfIntegers[i]);
-                    i++;
-                }
+			i = 0;
+			j = 0;
 
-                while (mid < lengthOfList)
-                {
-                    rightHalf.Append(arrayOfIntegers[mid]);
-                    mid++;
-                }
+			int k = left;
 
-				i = 0;
-				int j = 0;
-				int k = 0;
-
-				while (i < leftHalf.Length && j < rightHalf.Length)
+			while (i < lengthLeftArray && j < lengthRightArray)
+			{
+				if (leftTempArray[i] <= rightTempArray[j])
 				{
-					if (leftHalf[i] < rightHalf[j])
-					{
-						arrayOfIntegers[k] = leftHalf[i];
-						i++;
-					}
-					else
-					{
-						arrayOfIntegers[k] = leftHalf[i];
-						j++;
-					}
-					k++;
+					arrayOfIntegers[k++] = leftTempArray[i++];
 				}
-				while (i < leftHalf.Length)
+				else
 				{
-					arrayOfIntegers[k] = leftHalf[i];
-					i++;
-					k++;
+					arrayOfIntegers[k++] = rightTempArray[j++];
 				}
-				while (j < rightHalf.Length)
-				{
-					arrayOfIntegers[k] = rightHalf[j];
-					j++;
-					k++;
-				}
+			}
 
-            }
+			while (i < lengthLeftArray)
+			{
+				arrayOfIntegers[k++] = leftTempArray[i++];
+			}
 
+			while (j < lengthRightArray)
+			{
+				arrayOfIntegers[k++] = rightTempArray[j++];
+			}
+
+        }
+
+
+		public int[] mergeSort(int[] arrayOfIntegers, int left, int right)
+		{
+			if (left < right)
+			{
+				int middle = left + (right - left) / 2;
+				mergeSort(arrayOfIntegers, left, middle);
+				mergeSort(arrayOfIntegers, middle + 1, right);
+
+				mergeArray(arrayOfIntegers, left, middle, right);
+
+			}
 			return arrayOfIntegers;
+            
         }
 
 	}

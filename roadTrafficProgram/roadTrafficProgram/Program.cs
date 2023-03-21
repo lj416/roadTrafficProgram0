@@ -12,6 +12,7 @@ namespace roadTrafficProgram
     {
         static void Main(string[] args)
         {
+          
             //initialise short road txt files
             ReadTextFiles road_1_256 = new ReadTextFiles();
             ReadTextFiles road_2_256 = new ReadTextFiles();
@@ -57,18 +58,28 @@ namespace roadTrafficProgram
             a_road_3_256.insertionSort(Road_3_256_textfile);
             */
 
+            /*
             foreach (var value in Road_1_256_textfile)
             {
                 Console.WriteLine(value);
             }
-            a_road_1_256.mergeSort(Road_1_256_textfile);
-            a_road_2_256.mergeSort(Road_2_256_textfile);
-            a_road_3_256.mergeSort(Road_3_256_textfile);
+            */
+
+            /* -------merge sort code working
+            a_road_1_256.mergeSort(Road_1_256_textfile, 0, 255);
+            a_road_2_256.mergeSort(Road_2_256_textfile, 0, 255);
+            a_road_3_256.mergeSort(Road_3_256_textfile, 0, 255);
             Console.WriteLine("--------------merge sort-------------");
             foreach (var value in Road_1_256_textfile)
             {
                 Console.WriteLine(value);
             }
+            */
+
+            //main program
+            Menu.MainMenu();
+
+
 
         }
     }
