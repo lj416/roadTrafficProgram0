@@ -58,6 +58,7 @@ namespace roadTrafficProgram
             
             */
             //insertion sort
+            road_1_256.reverseInsertionSort(Road_1_256_textfile);
 
             /*
             a_road_1_256.insertionSort(Road_1_256_textfile);
@@ -283,7 +284,7 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                else if (sortChoice == "4") //insertion sort
+                else if (sortChoice == "4") //quick sort
                 {
 
                 }

@@ -91,7 +91,30 @@ namespace roadTrafficProgram
             return arrayOfIntegers;
 		}
 
-		public void mergeArray(int[] arrayOfIntegers, int left, int middle, int right)
+        public int[] reverseInsertionSort(int[] arrayOfIntegers)
+        {
+            int lengthOfList = arrayOfIntegers.Length;
+            int passCount = 0;
+            for (int i = 0; i < lengthOfList; i++)
+            {
+                int currentValue = arrayOfIntegers[i];
+                int position = i;
+
+                while (position > 0 && arrayOfIntegers[position - 1] < currentValue)
+                {
+                    arrayOfIntegers[position] = arrayOfIntegers[position - 1];
+                    position = position - 1;
+                }
+                arrayOfIntegers[position] = currentValue;
+                passCount = passCount + 1;
+            }
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Descending insertion sort pass count is " + passCount);
+            Console.WriteLine("-------------------------");
+            return arrayOfIntegers;
+        }
+
+        public void mergeArray(int[] arrayOfIntegers, int left, int middle, int right)
 		{
 			int lengthLeftArray = middle - left + 1;
 			int lengthRightArray = right - middle;
