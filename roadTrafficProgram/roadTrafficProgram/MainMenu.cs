@@ -1,11 +1,11 @@
 ﻿using System;
 namespace roadTrafficProgram
 {
-	public class Menu
-	{
+    public class Menu
+    {
 
         //MAIN MENU-------------------------------------------------------------
-        public static void MainMenu()
+        public static void MainMenu(int[] arrayOfNums)
 		{
 			bool menuFlag = true;
 
@@ -21,34 +21,23 @@ namespace roadTrafficProgram
 			{
 				if (userChoice == "1") //show sorting algorithms
 				{
-                    Menu.SortMenu();
+                    Menu.SortMenu(arrayOfNums);
                 }
 				else if (userChoice == "2") //quit
 				{
-                    //Console.WriteLine("running 2");
-                    //Console.ReadKey(); //wait for any key input before clearing the console
-                    //Menu.MainMenu();
                     menuFlag = false;
                 }
-                /*
-				else if (userChoice == "3")
-				{
-					Console.WriteLine("running 3");
-                    Console.ReadKey();
-                    Menu.MainMenu();
-                }
-                */
 				else //invalid input handling
 				{
 					Console.WriteLine("\nInvalid input.\nPress any key to try again.\n");
 					Console.ReadKey();
-					Menu.MainMenu();
+					Menu.MainMenu(arrayOfNums);
 				}
 			}
         }
 
         //SORT MENU------------------------------------------------------------
-        public static void SortMenu()
+        public static void SortMenu(int[] arrayOfNums)
         {
             bool menuFlag = true;
 
@@ -66,21 +55,22 @@ namespace roadTrafficProgram
             {
                 if (userChoice == "1") //Bubble sort
                 {
+                    
                     Console.WriteLine("running 1");
                     Console.ReadKey(); //wait for any key input before clearing the console
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
                 else if (userChoice == "2") //Insertion sort"
                 {
                     Console.WriteLine("running 2");
                     Console.ReadKey(); //wait for any key input before clearing the console
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
                 else if (userChoice == "3") //Merge sort
                 {
                     Console.WriteLine("running 3");
                     Console.ReadKey();
-                    Menu.MainMenu();
+                    Menu.MainMenu(arrayOfNums);
                 }
                 else if (userChoice == "4") //Quick sort
                 {
@@ -88,20 +78,20 @@ namespace roadTrafficProgram
                 }
                 else if (userChoice == "5")
                 {
-                    Menu.MainMenu();
+                    Menu.MainMenu(arrayOfNums);
                 }
                 else
                 {
                     Console.WriteLine("\nInvalid input.\nPress any key to try again.\n");
                     Console.ReadKey();
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
             }
         }
 
 
         //SEARCH MENU-----------------------------------------------------------
-		public static void SearchMenu()
+		public static void SearchMenu(int[] arrayOfNums)
 		{
             bool menuFlag = true;
 
@@ -120,19 +110,19 @@ namespace roadTrafficProgram
                 {
                     Console.WriteLine("running 1");
                     Console.ReadKey(); //wait for any key input before clearing the console
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
                 else if (userChoice == "2") //binary search
                 {
                     Console.WriteLine("running 2");
                     Console.ReadKey(); //wait for any key input before clearing the console
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
                 else if (userChoice == "3") //back to main menu
                 {
                     Console.WriteLine("running 3");
                     Console.ReadKey();
-                    Menu.MainMenu();
+                    Menu.MainMenu(arrayOfNums);
                 }
                 else if (userChoice == "4") //quit
                 {
@@ -142,10 +132,12 @@ namespace roadTrafficProgram
                 {
                     Console.WriteLine("\nInvalid input.\nPress any key to try again.\n");
                     Console.ReadKey();
-                    Menu.SearchMenu();
+                    Menu.SearchMenu(arrayOfNums);
                 }
             }
         }
+
+
 	}
 }
 

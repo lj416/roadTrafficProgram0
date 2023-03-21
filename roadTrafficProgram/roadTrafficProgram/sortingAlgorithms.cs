@@ -9,9 +9,10 @@ namespace roadTrafficProgram
 
 	public class sortingAlgorithms
 	{
+		public static int mergeCounter;
         public int[]? readSortingAlgorithms { get; set; }
 
-		public int[] bubbleSort(int[] arrayOfIntegers)
+		public int[] bubbleSort(int[] arrayOfIntegers) //asc
 		{
             int lengthOfList = arrayOfIntegers.Length;
             int passCount = 0;
@@ -32,14 +33,42 @@ namespace roadTrafficProgram
 
 			}
 			Console.WriteLine("-------------------------");
-			Console.WriteLine("Pass count is "+ passCount);
+			Console.WriteLine("Ascending bubble sort pass count is "+ passCount);
             Console.WriteLine("-------------------------");
 
             return arrayOfIntegers;
 
 		}
 
-		public int[] insertionSort(int[] arrayOfIntegers)
+        public int[] reverseBubbleSort(int[] arrayOfIntegers) //should reverse sort
+        { //desc
+            int lengthOfList = arrayOfIntegers.Length;
+            int passCount = 0;
+
+            for (int i = 0; i < lengthOfList - 1; i++)
+            {
+                for (int j = 0; j < lengthOfList - i - 1; j++)
+                {
+                    if (arrayOfIntegers[j] < arrayOfIntegers[j + 1])
+                    {
+                        int temp = arrayOfIntegers[j];
+                        arrayOfIntegers[j] = arrayOfIntegers[j + 1];
+                        arrayOfIntegers[j + 1] = temp;
+                        passCount = passCount + 1;
+
+                    }
+                }
+
+            }
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Descending bubble sort pass count is " + passCount);
+            Console.WriteLine("-------------------------");
+
+            return arrayOfIntegers;
+
+        }
+
+        public int[] insertionSort(int[] arrayOfIntegers)
 		{
 			int lengthOfList = arrayOfIntegers.Length;
 			int passCount = 0;
@@ -57,7 +86,7 @@ namespace roadTrafficProgram
 				passCount = passCount + 1;
 			}
             Console.WriteLine("-------------------------");
-            Console.WriteLine("Pass count is " + passCount);
+            Console.WriteLine("Ascending insertion sort pass count is " + passCount);
             Console.WriteLine("-------------------------");
             return arrayOfIntegers;
 		}
@@ -117,6 +146,7 @@ namespace roadTrafficProgram
 		{
 			if (left < right)
 			{
+				mergeCounter++;
 				int middle = left + (right - left) / 2;
 				mergeSort(arrayOfIntegers, left, middle);
 				mergeSort(arrayOfIntegers, middle + 1, right);
@@ -124,7 +154,10 @@ namespace roadTrafficProgram
 				mergeArray(arrayOfIntegers, left, middle, right);
 
 			}
-			return arrayOfIntegers;
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Ascending merge sort pass count is " + mergeCounter);
+            Console.WriteLine("-------------------------");
+            return arrayOfIntegers;
             
         }
 
