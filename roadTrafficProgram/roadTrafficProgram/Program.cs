@@ -909,7 +909,8 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                else if (initialChoice == "2") //sort by chosen asc/desc then output every 10th value
+//-----------------------------------------------------------------------------
+                else if (initialChoice == "2") //SORT BY CHOSEN ASC/DESC THEN OUTPUT EVERY 10TH VALUE
                 {
                     Console.WriteLine("You chose to output every 10th value.");
                     Console.WriteLine("\n--SELECT FILE--");
@@ -921,31 +922,33 @@ namespace roadTrafficProgram
                     Console.Write("Enter an option 1-4\n>");
                     string fileChoice = Console.ReadLine();
 
-                    if (fileChoice == "1")
+                    if (fileChoice == "1") //text file 1 256
                     {
                         sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_1_256_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 10th values
                         {
                             a_road_1_256.insertionSort(Road_1_256_textfile);
                             Console.WriteLine("\nOutputting every 10th value.");
+
                             for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
                             {
 
                                 Console.Write(Road_1_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 10 values
                         {
                             a_road_1_256.reverseInsertionSort(Road_1_256_textfile);
+
                             for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
                             {
 
                                 Console.Write(Road_1_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 3)
+                        else if (userOrderChoice == 3) //quit to main menu
                         {
                             break;
                         }
@@ -954,31 +957,33 @@ namespace roadTrafficProgram
                             Console.WriteLine("Invalid input.\n");
                         }
                     }
-                    else if (fileChoice == "2")
+                    else if (fileChoice == "2") //text file 2 256
                     {
                         sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_2_256_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 10th values
                         {
                             a_road_2_256.insertionSort(Road_2_256_textfile);
                             Console.WriteLine("\nOutputting every 10th value.");
+
                             for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
                             {
 
                                 Console.Write(Road_2_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 10th values
                         {
                             a_road_2_256.reverseInsertionSort(Road_2_256_textfile);
+
                             for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
                             {
 
                                 Console.Write(Road_2_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 3)
+                        else if (userOrderChoice == 3) //quit
                         {
                             break;
                         }
@@ -987,24 +992,26 @@ namespace roadTrafficProgram
                             Console.WriteLine("Invalid input.\n");
                         }
                     }
-                    else if (fileChoice == "3")
+                    else if (fileChoice == "3") //textfile 3 256
                     {
                         sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_3_256_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 10th values
                         {
                             a_road_3_256.insertionSort(Road_3_256_textfile);
                             Console.WriteLine("\nOutputting every 10th value.");
+
                             for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
                             {
 
                                 Console.Write(Road_3_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 10th values
                         {
                             a_road_3_256.reverseInsertionSort(Road_3_256_textfile);
+
                             for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
                             {
 
@@ -1030,7 +1037,8 @@ namespace roadTrafficProgram
                     }
 
                 }
-                else if (initialChoice == "3") //sort by chosen asc/desc then output every 50th value
+//-----------------------------------------------------------------------------
+                else if (initialChoice == "3") //SORT BY CHOSEN ASC/DESC THEN OUTPUT EVERY 50TH VALUE
                 {
                     Console.WriteLine("You chose to ");
                     Console.WriteLine("\n--SELECT FILE--");
@@ -1042,24 +1050,26 @@ namespace roadTrafficProgram
                     Console.Write("Enter an option 1-4\n>");
                     string fileChoice = Console.ReadLine();
 
-                    if (fileChoice == "1")
+                    if (fileChoice == "1") //TEXT FILE 1 2048
                     {
                         sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_1_2048_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 50th values
                         {
                             a_road_1_2048.insertionSort(Road_1_2048_textfile);
                             Console.WriteLine("\nOutputting every 50th value.");
+
                             for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                             {
 
                                 Console.Write(Road_1_2048_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 50th values
                         {
                             a_road_1_2048.reverseInsertionSort(Road_1_2048_textfile);
+
                             for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                             {
 
@@ -1075,24 +1085,27 @@ namespace roadTrafficProgram
                             Console.WriteLine("Invalid input.\n");
                         }
                     }
-                    else if (fileChoice == "2")
+ //-----------------------------------------------------------------------------
+                    else if (fileChoice == "2") //TEXT FILE 2 2048
                     {
                         sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_2_2048_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 50th values
                         {
                             a_road_2_2048.insertionSort(Road_2_2048_textfile);
                             Console.WriteLine("\nOutputting every 10th value.");
+
                             for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                             {
 
                                 Console.Write(Road_2_2048_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 50th values
                         {
                             a_road_2_2048.reverseInsertionSort(Road_2_2048_textfile);
+
                             for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                             {
 
@@ -1108,22 +1121,24 @@ namespace roadTrafficProgram
                             Console.WriteLine("Invalid input.\n");
                         }
                     }
-                    else if (fileChoice == "3")
+//-----------------------------------------------------------------------------
+                    else if (fileChoice == "3") //TEXT FILE 3 2048
                     {
                         sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_3_2048_textfile);
 
-                        if (userOrderChoice == 1)//asc
+                        if (userOrderChoice == 1)//ascending 50th values
                         {
                             a_road_3_2048.insertionSort(Road_3_2048_textfile);
                             Console.WriteLine("\nOutputting every 50th value.");
+
                             for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
                             {
 
                                 Console.Write(Road_3_256_textfile[i] + " , ");
                             }
                         }
-                        else if (userOrderChoice == 2) //desc
+                        else if (userOrderChoice == 2) //descending 50th values
                         {
                             a_road_3_2048.reverseInsertionSort(Road_3_2048_textfile);
                             for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
@@ -1150,17 +1165,70 @@ namespace roadTrafficProgram
                         Console.WriteLine("Invalid input.");
                     }
                 }
-                else if (initialChoice == "4") //quit
+//-----------------------------------------------------------------------------
+                else if (initialChoice == "4") //MERGE ROAD1 and ROAD3 256
                 {
-                    //initialMenuFlag = false;
+                    int[] merge_Road_256 = Road_1_256_textfile;
+
+                    for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                    {
+                        merge_Road_256.Append(Road_3_256_textfile[i]);
+                    }
+                    sortingAlgorithms a_merged_road_3_256 = new sortingAlgorithms();
+                    userOrderChoice = orderMenu(merge_Road_256);
+
+                    if (userOrderChoice == 1) //asc
+                    {
+                        a_merged_road_3_256.insertionSort(merge_Road_256);
+                    }
+                    else if (userOrderChoice == 2) //desc
+                    {
+                        a_merged_road_3_256.reverseInsertionSort(merge_Road_256);
+                    }
+
+                    foreach (var value in merge_Road_256)
+                    {
+                        Console.Write(value + "  ");
+                    }
+
+                    Console.Write("\n\nPress any key to continue to the menu.\n");
+                    Console.ReadKey();
                 }
-                else if (initialChoice == "5") //quit
+//-----------------------------------------------------------------------------
+                else if (initialChoice == "5") //MERGE RAOD1 AND ROAD3 2048
                 {
+                    int[] merge_Road_2048 = Road_1_2048_textfile;
+                    sortingAlgorithms a_merged_road_3_2048 = new sortingAlgorithms();
+
+                    for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                    {
+                        merge_Road_2048.Append(Road_3_2048_textfile[i]);
+                    }
+                    userOrderChoice = orderMenu(merge_Road_2048);
+
+                    if (userOrderChoice == 1) //asc
+                    {
+                        a_merged_road_3_2048.insertionSort(merge_Road_2048);
+                    }
+                    else if (userOrderChoice == 2) //desc
+                    {
+                        a_merged_road_3_2048.reverseInsertionSort(merge_Road_2048);
+                    }
+
+                    foreach (var value in merge_Road_2048)
+                    {
+                        Console.Write(value + "  ");
+                    }
+
+                    Console.Write("\n\nPress any key to continue to the menu.\n");
+                    Console.ReadKey();
                 }
-                else if (initialChoice == "6") //quit
+//-----------------------------------------------------------------------------
+                else if (initialChoice == "6") //QUIT
                 {
                     initialMenuFlag = false;
                 }
+//-----------------------------------------------------------------------------
                 else
                 {
                     Console.Clear();
@@ -1169,9 +1237,6 @@ namespace roadTrafficProgram
                     Console.Clear();
                 }
             }
-
-
-
         }
     }
 }
