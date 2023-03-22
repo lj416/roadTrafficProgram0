@@ -34,7 +34,7 @@ namespace roadTrafficProgram
 				}
 
 			}
-			Console.WriteLine("-------------------------");
+			Console.WriteLine("\n-------------------------");
 			Console.WriteLine("Ascending bubble sort pass count is "+ passCount);
             Console.WriteLine("-------------------------");
 
@@ -63,7 +63,7 @@ namespace roadTrafficProgram
                 }
 
             }
-            Console.WriteLine("-------------------------");
+            Console.WriteLine("\n-------------------------");
             Console.WriteLine("Descending bubble sort pass count is " + passCount);
             Console.WriteLine("-------------------------");
 
@@ -85,11 +85,12 @@ namespace roadTrafficProgram
 				{
 					arrayOfIntegers[position] = arrayOfIntegers[position - 1];
 					position = position - 1;
-				}
+                    passCount = passCount + 1;
+                }
 				arrayOfIntegers[position] = currentValue;
-				passCount = passCount + 1;
+				
 			}
-            Console.WriteLine("-------------------------");
+            Console.WriteLine("\n-------------------------");
             Console.WriteLine("Ascending insertion sort pass count is " + passCount);
             Console.WriteLine("-------------------------");
             return arrayOfIntegers;
@@ -109,11 +110,12 @@ namespace roadTrafficProgram
                 {
                     arrayOfIntegers[position] = arrayOfIntegers[position - 1];
                     position = position - 1;
+                    passCount = passCount + 1;
                 }
                 arrayOfIntegers[position] = currentValue;
-                passCount = passCount + 1;
+                
             }
-            Console.WriteLine("-------------------------");
+            Console.WriteLine("\n-------------------------");
             Console.WriteLine("Descending insertion sort pass count is " + passCount);
             Console.WriteLine("-------------------------");
             return arrayOfIntegers;

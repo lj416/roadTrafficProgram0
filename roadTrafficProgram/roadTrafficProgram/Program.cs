@@ -144,7 +144,7 @@ namespace roadTrafficProgram
                 Console.WriteLine("2. Insertion sort");
                 Console.WriteLine("3. Merge Sort");
                 Console.WriteLine("4. Quick Sort");
-                Console.WriteLine("Enter a value from 1-4");
+                Console.WriteLine("Enter a value from 1-4.\n>");
                 string sortChoice = Console.ReadLine();
 
                 if (sortChoice == "1") //BUBBLE SORT
@@ -152,6 +152,8 @@ namespace roadTrafficProgram
                     //Console.Clear(); //clear the console for each main menu output         
                     while (validFileFlag = true)
                     {
+                        Console.WriteLine("You chose Insertion Sort.");
+
                         Console.WriteLine("\n--SELECT FILE--");
                         Console.WriteLine("1. Road_1_256");
                         Console.WriteLine("2. Road_2_256");
@@ -160,7 +162,7 @@ namespace roadTrafficProgram
                         Console.WriteLine("5. Road_2_2048");
                         Console.WriteLine("6. Road_3_2048");
                         Console.WriteLine("7. Back");
-                        Console.Write("Enter an option 1-7.");
+                        Console.Write("Enter an option 1-7\n>");
                         string fileChoice = Console.ReadLine();
 
                         if (fileChoice == "1")
@@ -281,7 +283,7 @@ namespace roadTrafficProgram
                         }
                         else
                         {
-                            Console.WriteLine("invalid input");
+                            Console.WriteLine("Invalid input, try again.\n");
                         }
                     }
                 }
@@ -289,6 +291,8 @@ namespace roadTrafficProgram
                 {
                     while (validFileFlag = true)
                     {
+                        Console.WriteLine("You chose Insertion Sort.");
+
                         Console.WriteLine("\n--SELECT FILE--");
                         Console.WriteLine("1. Road_1_256");
                         Console.WriteLine("2. Road_2_256");
@@ -296,48 +300,131 @@ namespace roadTrafficProgram
                         Console.WriteLine("4. Road_1_2048");
                         Console.WriteLine("5. Road_2_2048");
                         Console.WriteLine("6. Road_3_2048");
-                        Console.Write("Enter an option 1-3.");
+                        Console.WriteLine("7. Back");
+                        Console.Write("Enter an option 1-7\n>");
                         string fileChoice = Console.ReadLine();
 
                         if (fileChoice == "1")
                         {
                             sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
-                            a_road_1_256.insertionSort(Road_1_256_textfile);
-                            break;
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_1_256.insertionSort(Road_1_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_1_256.reverseInsertionSort(Road_1_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "2")
                         {
                             sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
-                            a_road_2_256.insertionSort(Road_2_256_textfile);
-                            break;
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_2_256.insertionSort(Road_2_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_2_256.reverseInsertionSort(Road_2_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "3")
                         {
                             sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
-                            a_road_3_256.insertionSort(Road_3_256_textfile);
-                            break;
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_3_256.insertionSort(Road_3_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_3_256.reverseInsertionSort(Road_3_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "4")
                         {
                             sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
-                            a_road_1_2048.insertionSort(Road_1_2048_textfile);
-                            break;
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_1_2048.insertionSort(Road_1_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_1_2048.reverseInsertionSort(Road_1_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "5")
                         {
                             sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
-                            a_road_2_2048.insertionSort(Road_2_2048_textfile);
-                            break;
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_2_2048.insertionSort(Road_2_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_2_2048.reverseInsertionSort(Road_2_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "6")
                         {
                             sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
-                            a_road_3_2048.insertionSort(Road_3_2048_textfile);
+
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_3_2048.insertionSort(Road_3_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_3_2048.reverseInsertionSort(Road_3_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
+                        }
+                        else if (fileChoice == "7")
+                        {
                             break;
                         }
                         else
                         {
-                            Console.WriteLine("Invalid input, try again.");
+                            Console.WriteLine("Invalid input, try again.\n");
                         }
                     }
                 }
@@ -352,7 +439,8 @@ namespace roadTrafficProgram
                         Console.WriteLine("4. Road_1_2048");
                         Console.WriteLine("5. Road_2_2048");
                         Console.WriteLine("6. Road_3_2048");
-                        Console.Write("Enter an option 1-3.");
+                        Console.WriteLine("7. Back");
+                        Console.Write("Enter an option 1-7\n>");
                         string fileChoice = Console.ReadLine();
 
                         if (fileChoice == "1")
@@ -391,9 +479,13 @@ namespace roadTrafficProgram
                             a_road_3_2048.mergeSort(Road_3_2048_textfile, 0, 2047);
                             break;
                         }
+                        else if (fileChoice == "7")
+                        {
+                            break;
+                        }
                         else
                         {
-                            Console.WriteLine("Invalid input, try again.");
+                            Console.WriteLine("Invalid input, try again.\n");
                         }
                     }
                 }
@@ -408,7 +500,8 @@ namespace roadTrafficProgram
                         Console.WriteLine("4. Road_1_2048");
                         Console.WriteLine("5. Road_2_2048");
                         Console.WriteLine("6. Road_3_2048");
-                        Console.Write("Enter an option 1-3.");
+                        Console.WriteLine("7. Back");
+                        Console.Write("Enter an option 1-7\n>");
                         string fileChoice = Console.ReadLine();
 
                         if (fileChoice == "1")
@@ -453,16 +546,20 @@ namespace roadTrafficProgram
                             a_road_3_2048.quickSort(Road_3_2048_textfile, 0, 255);
                             break;
                         }
+                        else if (fileChoice == "7")
+                        {
+                            break;
+                        }
                         else
                         {
-                            Console.WriteLine("Invalid input, try again.");
+                            Console.WriteLine("Invalid input, try again.\n");
                         }
                     }
                 }
-                else
-                {
+                //else
+                //{
 
-                }
+                //}
             }
         }
     }
