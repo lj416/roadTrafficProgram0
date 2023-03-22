@@ -74,14 +74,7 @@ namespace roadTrafficProgram
             }
             */
 
-            //bubble sort for the 3 arrays
-
-
             /*
-            a_road_1_256.bubbleSort(Road_1_256_textfile);
-            a_road_2_256.bubbleSort(Road_2_256_textfile);
-            a_road_3_256.bubbleSort(Road_3_256_textfile);
-            
 
             //checking output for bubble sort -> WORKING
             Console.WriteLine("--------------bubble sort-------------");
@@ -105,11 +98,7 @@ namespace roadTrafficProgram
 
             //reverseinsertionmethod.reverseInsertionSort(Road_1_256_textfile);
 
-            /*
-            a_road_1_256.insertionSort(Road_1_256_textfile);
-            a_road_2_256.insertionSort(Road_2_256_textfile);
-            a_road_3_256.insertionSort(Road_3_256_textfile);
-            */
+            
 
             /*
             foreach (var value in Road_1_256_textfile)
@@ -118,19 +107,45 @@ namespace roadTrafficProgram
             }
             */
 
-            /* -------merge sort code working
-            a_road_1_256.mergeSort(Road_1_256_textfile, 0, 255);
-            a_road_2_256.mergeSort(Road_2_256_textfile, 0, 255);
-            a_road_3_256.mergeSort(Road_3_256_textfile, 0, 255);
-            Console.WriteLine("--------------merge sort-------------");
-            foreach (var value in Road_1_256_textfile)
-            {
-                Console.WriteLine(value);
-            }
-            */
+        
 
             bool validSortFlag = true;
+
+            bool initialMenuFlag = true;
             int userOrderChoice;
+            
+
+            while (initialMenuFlag == true)
+            {
+                Console.WriteLine("\nWelcome! Choose what to do\n--SELECT ACTION--");
+                Console.WriteLine("1. Sort");
+                Console.WriteLine("2. Output every 10th value (for 256 lined textfiles)");
+                Console.WriteLine("3. Output every 50th value (for 2048 lines textfiles)");
+                Console.WriteLine("4. Quit");
+                Console.WriteLine("Enter a value from 1-4.\n>");
+                string initialChoice = Console.ReadLine();
+
+                if (initialChoice == "1") //sort
+                {
+
+                }
+                else if (initialChoice == "2") //sort by chosen asc/desc then output every 10th value
+                {
+
+                }
+                else if (initialChoice == "3") //sort by chosen asc/desc then output every 50th value
+                {
+
+                }
+                else if (initialChoice == "4") //quit
+                {
+
+                }
+                else
+                {
+
+                }
+            }
 
 
             while (validSortFlag = true)
@@ -556,10 +571,6 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                //else
-                //{
-
-                //}
             }
         }
     }
