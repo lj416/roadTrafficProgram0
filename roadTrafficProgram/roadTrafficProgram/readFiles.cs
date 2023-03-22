@@ -8,7 +8,6 @@ namespace roadTrafficProgram
 {
 	public class ReadTextFiles
 	{
-
 		public int[] readFiles(string fileName)
 		{
 			fileName = fileName + ".txt"; //allows this method to work with any file name
@@ -19,10 +18,6 @@ namespace roadTrafficProgram
 			
             return convertedRoadFiles; //returns an integer array
 		}
-
-		
-
-		
 	}
 }
 

@@ -13,12 +13,14 @@ namespace roadTrafficProgram
         static void Main(string[] args)
         {
             //initialise road txt files
+
             ReadTextFiles road_1_256 = new ReadTextFiles();
             ReadTextFiles road_2_256 = new ReadTextFiles();
             ReadTextFiles road_3_256 = new ReadTextFiles();
             ReadTextFiles road_1_2048 = new ReadTextFiles();
             ReadTextFiles road_2_2048 = new ReadTextFiles();
             ReadTextFiles road_3_2048 = new ReadTextFiles();
+
 
             //stores the arrays in strings
             int[] Road_1_256_textfile = road_1_256.readFiles("Road_1_256");
@@ -65,50 +67,6 @@ namespace roadTrafficProgram
                 return -1;
             }
 
-            //static int
-            //iterates through the array to output all values, otherwise it outputs System.string[]
-            /*
-            foreach (var value in Road_1_256_textfile)
-            {
-                Console.WriteLine(value);
-            }
-            */
-
-            /*
-
-            //checking output for bubble sort -> WORKING
-            Console.WriteLine("--------------bubble sort-------------");
-            foreach (var value in Road_1_256_textfile)
-            {
-                Console.WriteLine(value);
-            }
-            
-            */
-            //insertion sort
-            /*
-            var reverseinsertionmethod = new sortingAlgorithms();
-
-            var reverseroads = reverseinsertionmethod.reverseInsertionSort(Road_1_256_textfile);
-
-            foreach (var road in reverseroads)
-            {
-                Console.WriteLine(road);
-            }
-            */
-
-            //reverseinsertionmethod.reverseInsertionSort(Road_1_256_textfile);
-
-            
-
-            /*
-            foreach (var value in Road_1_256_textfile)
-            {
-                Console.WriteLine(value);
-            }
-            */
-
-        
-
             bool validSortFlag = true;
 
             bool initialMenuFlag = true;
@@ -117,13 +75,15 @@ namespace roadTrafficProgram
 
             while (initialMenuFlag == true)
             {
-                Console.WriteLine("\nWelcome! Choose what to do\n--SELECT ACTION--"); //searching only is after the array is sorted
-                Console.WriteLine("You can choose to search after sorting the files.");
+                Console.WriteLine("\nWelcome!\n\n--SELECT ACTION--"); //searching only is after the array is sorted
+                Console.WriteLine("\n(You can choose to search after sorting the files.)\n");
                 Console.WriteLine("1. Sort");
                 Console.WriteLine("2. Output every 10th value (for 256 lined textfiles)");
                 Console.WriteLine("3. Output every 50th value (for 2048 lines textfiles)");
-                Console.WriteLine("4. Quit");
-                Console.WriteLine("Enter a value from 1-4.\n>");
+                Console.WriteLine("4. Merge Road_1_256.txt and Road_3_256");
+                Console.WriteLine("5. Merge Road_1_2048.txt and Road_3_2048");
+                Console.WriteLine("6. Quit");
+                Console.Write("Enter a value from 1-6.\n>");
                 string initialChoice = Console.ReadLine();
 
                 if (initialChoice == "1") //show sort options
@@ -139,7 +99,7 @@ namespace roadTrafficProgram
                         Console.WriteLine("2. Insertion sort");
                         Console.WriteLine("3. Merge Sort");
                         Console.WriteLine("4. Quick Sort");
-                        Console.WriteLine("Enter a value from 1-4.\n>");
+                        Console.Write("Enter a value from 1-4.\n>");
                         string sortChoice = Console.ReadLine();
 
                         if (sortChoice == "1") //BUBBLE SORT
@@ -147,7 +107,7 @@ namespace roadTrafficProgram
                             //Console.Clear(); //clear the console for each main menu output         
                             while (validFileFlag = true)
                             {
-                                Console.WriteLine("You chose Insertion Sort.");
+                                Console.WriteLine("You chose Bubble Sort.");
 
                                 Console.WriteLine("\n--SELECT FILE--");
                                 Console.WriteLine("1. Road_1_256");
@@ -176,8 +136,8 @@ namespace roadTrafficProgram
                                         Console.WriteLine("3. Quit");
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
-                                        
-                                        Console.WriteLine("Enter an item to search for");
+
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -210,7 +170,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -255,7 +215,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -288,7 +248,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -331,7 +291,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -364,7 +324,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -407,7 +367,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -440,7 +400,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -483,7 +443,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -517,7 +477,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -561,7 +521,7 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an option 1-3\n>");
                                         string searchChoice = Console.ReadLine();
 
-                                        Console.WriteLine("Enter an item to search for");
+                                        Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
                                         if (searchChoice == "1")
@@ -628,10 +588,23 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_1_256.insertionSort(Road_1_256_textfile);
+
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_1_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_1_256.reverseInsertionSort(Road_1_256_textfile);
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_1_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -647,10 +620,22 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_2_256.insertionSort(Road_2_256_textfile);
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_2_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_2_256.reverseInsertionSort(Road_2_256_textfile);
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_2_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -666,10 +651,22 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_3_256.insertionSort(Road_3_256_textfile);
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_3_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_3_256.reverseInsertionSort(Road_3_256_textfile);
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_3_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -685,10 +682,22 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_1_2048.insertionSort(Road_1_2048_textfile);
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_1_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_1_2048.reverseInsertionSort(Road_1_2048_textfile);
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_1_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -704,10 +713,22 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_2_2048.insertionSort(Road_2_2048_textfile);
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_2_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_2_2048.reverseInsertionSort(Road_2_2048_textfile);
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_2_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -723,10 +744,22 @@ namespace roadTrafficProgram
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_3_2048.insertionSort(Road_3_2048_textfile);
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_3_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_3_2048.reverseInsertionSort(Road_3_2048_textfile);
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                                        {
+                                            Console.Write(Road_3_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        break;
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -745,8 +778,10 @@ namespace roadTrafficProgram
                         }
                         else if (sortChoice == "3") //MERGE SORT
                         {
+
                             while (validFileFlag = true)
                             {
+                                Console.WriteLine("You chose Merge Sort");
                                 Console.WriteLine("\n--SELECT FILE--");
                                 Console.WriteLine("1. Road_1_256");
                                 Console.WriteLine("2. Road_2_256");
@@ -808,6 +843,7 @@ namespace roadTrafficProgram
                         {
                             while (validFileFlag = true)
                             {
+                                Console.WriteLine("You chose Quick Sort.");
                                 Console.WriteLine("\n--SELECT FILE--");
                                 Console.WriteLine("1. Road_1_256");
                                 Console.WriteLine("2. Road_2_256");
@@ -875,7 +911,7 @@ namespace roadTrafficProgram
                 }
                 else if (initialChoice == "2") //sort by chosen asc/desc then output every 10th value
                 {
-                    
+                    Console.WriteLine("You chose to output every 10th value.");
                     Console.WriteLine("\n--SELECT FILE--");
                     Console.WriteLine("1. Road_1_256");
                     Console.WriteLine("2. Road_2_256");
@@ -884,19 +920,20 @@ namespace roadTrafficProgram
                     Console.WriteLine("4. Back");
                     Console.Write("Enter an option 1-4\n>");
                     string fileChoice = Console.ReadLine();
-                    
+
                     if (fileChoice == "1")
                     {
                         sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_1_256_textfile);
+
                         if (userOrderChoice == 1)//asc
                         {
                             a_road_1_256.insertionSort(Road_1_256_textfile);
                             Console.WriteLine("\nOutputting every 10th value.");
                             for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
                             {
-                                
-                                Console.Write(Road_1_256_textfile[i]+" , ");
+
+                                Console.Write(Road_1_256_textfile[i] + " , ");
                             }
                         }
                         else if (userOrderChoice == 2) //desc
@@ -921,6 +958,7 @@ namespace roadTrafficProgram
                     {
                         sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_2_256_textfile);
+
                         if (userOrderChoice == 1)//asc
                         {
                             a_road_2_256.insertionSort(Road_2_256_textfile);
@@ -953,6 +991,7 @@ namespace roadTrafficProgram
                     {
                         sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
                         userOrderChoice = orderMenu(Road_3_256_textfile);
+
                         if (userOrderChoice == 1)//asc
                         {
                             a_road_3_256.insertionSort(Road_3_256_textfile);
@@ -989,19 +1028,145 @@ namespace roadTrafficProgram
                     {
                         Console.WriteLine("Invalid input.");
                     }
-                    
+
                 }
                 else if (initialChoice == "3") //sort by chosen asc/desc then output every 50th value
                 {
+                    Console.WriteLine("You chose to ");
+                    Console.WriteLine("\n--SELECT FILE--");
+                    Console.WriteLine("1. Road_1_2048");
+                    Console.WriteLine("2. Road_2_2048");
+                    Console.WriteLine("3. Road_3_2048");
 
+                    Console.WriteLine("4. Back");
+                    Console.Write("Enter an option 1-4\n>");
+                    string fileChoice = Console.ReadLine();
+
+                    if (fileChoice == "1")
+                    {
+                        sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
+                        userOrderChoice = orderMenu(Road_1_2048_textfile);
+
+                        if (userOrderChoice == 1)//asc
+                        {
+                            a_road_1_2048.insertionSort(Road_1_2048_textfile);
+                            Console.WriteLine("\nOutputting every 50th value.");
+                            for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_1_2048_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 2) //desc
+                        {
+                            a_road_1_2048.reverseInsertionSort(Road_1_2048_textfile);
+                            for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_1_2048_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 3)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input.\n");
+                        }
+                    }
+                    else if (fileChoice == "2")
+                    {
+                        sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
+                        userOrderChoice = orderMenu(Road_2_2048_textfile);
+
+                        if (userOrderChoice == 1)//asc
+                        {
+                            a_road_2_2048.insertionSort(Road_2_2048_textfile);
+                            Console.WriteLine("\nOutputting every 10th value.");
+                            for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_2_2048_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 2) //desc
+                        {
+                            a_road_2_2048.reverseInsertionSort(Road_2_2048_textfile);
+                            for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_2_2048_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 3)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input.\n");
+                        }
+                    }
+                    else if (fileChoice == "3")
+                    {
+                        sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
+                        userOrderChoice = orderMenu(Road_3_2048_textfile);
+
+                        if (userOrderChoice == 1)//asc
+                        {
+                            a_road_3_2048.insertionSort(Road_3_2048_textfile);
+                            Console.WriteLine("\nOutputting every 50th value.");
+                            for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_3_256_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 2) //desc
+                        {
+                            a_road_3_2048.reverseInsertionSort(Road_3_2048_textfile);
+                            for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
+                            {
+
+                                Console.Write(Road_3_2048_textfile[i] + " , ");
+                            }
+                        }
+                        else if (userOrderChoice == 3)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input.\n");
+                        }
+                    }
+                    else if (fileChoice == "4")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                    }
                 }
                 else if (initialChoice == "4") //quit
+                {
+                    //initialMenuFlag = false;
+                }
+                else if (initialChoice == "5") //quit
+                {
+                }
+                else if (initialChoice == "6") //quit
                 {
                     initialMenuFlag = false;
                 }
                 else
                 {
-
+                    Console.Clear();
+                    Console.WriteLine("\nInvalid input.\n");
+                    Thread.Sleep(500); //pause before clearing the terminal
+                    Console.Clear();
                 }
             }
 

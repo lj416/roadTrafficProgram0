@@ -186,6 +186,7 @@ namespace roadTrafficProgram
 				mergeArray(arrayOfIntegers, left, middle, right);
                 mergeCounter++;
             }
+            Console.Clear(); //tidy up the console
             Console.WriteLine("-------------------------");
             Console.WriteLine("Ascending merge sort pass count is " + mergeCounter);
             Console.WriteLine("-------------------------");
@@ -243,6 +244,7 @@ namespace roadTrafficProgram
 				quickSort(arrayOfIntegers, split + 1, end);
 				passCountQuickSort++;
 			}
+			Console.Clear(); //tidy up the console
             Console.WriteLine("-------------------------");
             Console.WriteLine("Quick sort pass count is " + passCountQuickSort);
             Console.WriteLine("-------------------------");
