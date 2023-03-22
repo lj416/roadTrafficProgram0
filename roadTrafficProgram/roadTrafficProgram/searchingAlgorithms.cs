@@ -6,12 +6,20 @@ namespace roadTrafficProgram
 
 		public static void linearSearch(int[] arrayOfIntegers, int itemSought)
 		{
+			bool itemFound = false; //flag to indicate whether found
 			for (int i = 0; i < arrayOfIntegers.Length; i++)
 			{
 				if (arrayOfIntegers[i] == itemSought)
 				{
 					Console.WriteLine(itemSought+" is found at "+i);
+					itemFound = true;
 				}
+			}
+
+			if (itemFound == false)
+			{
+				Console.WriteLine("Item wasn't found.");
+				//output nearest values
 			}
 		}
 

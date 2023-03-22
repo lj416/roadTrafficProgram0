@@ -12,9 +12,7 @@ namespace roadTrafficProgram
     {
         static void Main(string[] args)
         {
-
-            //initialise short road txt files
-            
+            //initialise road txt files
             ReadTextFiles road_1_256 = new ReadTextFiles();
             ReadTextFiles road_2_256 = new ReadTextFiles();
             ReadTextFiles road_3_256 = new ReadTextFiles();
@@ -22,9 +20,7 @@ namespace roadTrafficProgram
             ReadTextFiles road_2_2048 = new ReadTextFiles();
             ReadTextFiles road_3_2048 = new ReadTextFiles();
 
-
             //stores the arrays in strings
-
             int[] Road_1_256_textfile = road_1_256.readFiles("Road_1_256");
             int[] Road_2_256_textfile = road_2_256.readFiles("Road_2_256");
             int[] Road_3_256_textfile = road_3_256.readFiles("Road_3_256");
@@ -32,47 +28,44 @@ namespace roadTrafficProgram
             int[] Road_2_2048_textfile = road_2_2048.readFiles("Road_2_2048");
             int[] Road_3_2048_textfile = road_3_2048.readFiles("Road_3_2048");
 
-
-            static void orderMenu(int[] arrayOfIntegers) //function for ascending+descending
+            //function for ascending or descending choice
+            static int orderMenu(int[] arrayOfIntegers) //only for bubble and insertion
             {
-                bool validSortOrder = true;
-                while (validSortOrder = true)
+                bool validSortOrder = false;
+                string orderChoice;
+                int orderChoiceInt;
+                while (validSortOrder == false)
                 {
                     Console.WriteLine("\n--SELECT SORT ORDER--");
                     Console.WriteLine("1. Ascending");
                     Console.WriteLine("2. Descending");
-                    Console.WriteLine("3. Quit");
+                    Console.WriteLine("3. Back");
                     Console.WriteLine("Enter a value from 1-3");
-                    string orderChoice = Console.ReadLine();
-                    /*
-                    if (orderChoice == "1") //output ascending
-                    {
-                        foreach (int element in arrayOfIntegers)
-                        {
-                            Console.WriteLine(element);
-                        }
-                        break;
-                    }
-                    else if (orderChoice == "2") //output descending
-                    {
-                        int[] reversedArrayOfIntegers = ReverseArray.reverseTheArray(arrayOfIntegers);
+                    orderChoice = Console.ReadLine();
 
-                        foreach (int element in reversedArrayOfIntegers)
+                    try
+                    {
+                        orderChoiceInt = Int32.Parse(orderChoice);
+                        if (orderChoiceInt <= 3 && orderChoiceInt >= 1)
                         {
-                            Console.WriteLine(element);
+                            validSortOrder = true;
+                            return orderChoiceInt;
+                        }
+                        else
+                        {
+                            orderMenu(arrayOfIntegers);
                         }
                     }
-                    else if (orderChoice == "3")
-                    {
-                        break;
-                    }
-                    else
+                    catch
                     {
                         Console.WriteLine("Enter a value from 1-3");
+                        orderChoice = Console.ReadLine();
                     }
-                    */
                 }
+                return -1;
             }
+
+            //static int
             //iterates through the array to output all values, otherwise it outputs System.string[]
             /*
             foreach (var value in Road_1_256_textfile)
@@ -136,11 +129,10 @@ namespace roadTrafficProgram
             }
             */
 
-
-
-
             bool validSortFlag = true;
-            
+            int userOrderChoice;
+
+
             while (validSortFlag = true)
 
             {
@@ -174,41 +166,114 @@ namespace roadTrafficProgram
                         if (fileChoice == "1")
                         {
                             sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
-                            a_road_1_256.bubbleSort(Road_1_256_textfile);
-                            orderMenu(Road_1_256_textfile);
+                            
+                            userOrderChoice = orderMenu(Road_1_256_textfile);
+
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_1_256.bubbleSort(Road_1_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_1_256.reverseBubbleSort(Road_1_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                             //validFileFlag = false;
-                            break; //setting the flag to exit the nested while loop does not work as expected
+                                //break; //setting the flag to exit the nested while loop does not work as expected
                         }
                         else if (fileChoice == "2")
                         {
                             sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
-                            a_road_2_256.bubbleSort(Road_2_256_textfile);
-                            break;
+                           
+                            userOrderChoice = orderMenu(Road_2_256_textfile);
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_2_256.bubbleSort(Road_2_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_2_256.reverseBubbleSort(Road_2_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "3")
                         {
                             sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
-                            a_road_3_256.bubbleSort(Road_3_256_textfile);
-                            break;
+     
+                            userOrderChoice = orderMenu(Road_3_256_textfile);
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_3_256.bubbleSort(Road_3_256_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_3_256.reverseBubbleSort(Road_3_256_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "4")
                         {
                             sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
-                            a_road_1_2048.bubbleSort(Road_1_2048_textfile);
-                            break;
+                       
+                            userOrderChoice = orderMenu(Road_1_2048_textfile);
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_1_2048.bubbleSort(Road_1_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_1_2048.reverseBubbleSort(Road_1_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "5")
                         {
                             sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
-                            a_road_2_2048.bubbleSort(Road_2_2048_textfile);
-                            break;
+ 
+                            userOrderChoice = orderMenu(Road_1_2048_textfile);
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_2_2048.bubbleSort(Road_2_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_2_2048.reverseBubbleSort(Road_2_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
 
                         }
                         else if (fileChoice == "6")
                         {
                             sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
-                            a_road_3_2048.bubbleSort(Road_3_2048_textfile);
-                            break;
+                            
+                            userOrderChoice = orderMenu(Road_1_2048_textfile);
+                            if (userOrderChoice == 1) //ascending
+                            {
+                                a_road_3_2048.bubbleSort(Road_3_2048_textfile);
+                            }
+                            else if (userOrderChoice == 2) //descending
+                            {
+                                a_road_3_2048.reverseBubbleSort(Road_3_2048_textfile);
+                            }
+                            else if (userOrderChoice == 3) //quit
+                            {
+                                break;
+                            }
                         }
                         else if (fileChoice == "7")
                         {
@@ -222,9 +287,6 @@ namespace roadTrafficProgram
                 }
                 else if (sortChoice == "2") //INSERTION SORT
                 {
-                    
-
-
                     while (validFileFlag = true)
                     {
                         Console.WriteLine("\n--SELECT FILE--");
@@ -402,70 +464,6 @@ namespace roadTrafficProgram
 
                 }
             }
-
-
-            /*
-            //bubble sorts-----------------------------------------------------
-            Console.Clear(); //clear the console for each main menu output
-            Console.WriteLine("--SELECT FILE--");
-            Console.WriteLine("1. Road_1_256");
-            Console.WriteLine("2. Road_2_256");
-            Console.WriteLine("3. Road_3_256");
-            Console.WriteLine("4. Road_1_2048");
-            Console.WriteLine("5. Road_2_2048");
-            Console.WriteLine("6. Road_3_2048");
-
-            bool validFileFlag = true;
-            while (validFileFlag = true)
-            {
-                Console.Write("Enter an option 1-3.");
-                string fileChoice = Console.ReadLine();
-
-                if (fileChoice == "1")
-                {
-                    sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
-                    a_road_1_256.bubbleSort(Road_1_256_textfile);
-                }
-                else if (fileChoice == "2")
-                {
-                    sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
-                    a_road_2_256.bubbleSort(Road_2_256_textfile);
-                }
-                else if (fileChoice == "3")
-                {
-                    sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
-                    a_road_3_256.bubbleSort(Road_3_256_textfile);
-                }
-                else
-                {
-                    Console.WriteLine("invalid input");
-                }
-            }
-            */
-            /*
-            Console.Write("Enter an option 1-3.");
-            string fileChoice = Console.ReadLine();
-
-
-            if (fileChoice == "1")
-            {
-                Menu.MainMenu(Road_1_256_textfile);
-            }
-            else if (fileChoice == "2")
-            {
-                Menu.MainMenu(Road_2_256_textfile);
-            }
-            else if (fileChoice == "3")
-            {
-                Menu.MainMenu(Road_3_256_textfile);
-            }
-            else
-            {
-                Console.WriteLine("invalid input");
-            }
-            */
-
-
         }
     }
 }
