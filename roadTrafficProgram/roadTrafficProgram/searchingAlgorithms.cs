@@ -4,7 +4,7 @@ namespace roadTrafficProgram
 	public class searchingAlgorithms
 	{
 
-		public static void linearSearch(int[] arrayOfIntegers, int itemSought)
+		public void linearSearch(int[] arrayOfIntegers, int itemSought)
 		{
 			bool itemFound = false; //flag to indicate whether found
 			for (int i = 0; i < arrayOfIntegers.Length; i++)

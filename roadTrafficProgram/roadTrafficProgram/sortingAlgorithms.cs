@@ -231,16 +231,22 @@ namespace roadTrafficProgram
 			return rightPointer;
 		}
 
-		//MAIN QUICK SORT
-		public int[] quickSort(int[] arrayOfIntegers, int start, int end)
+		public static int passCountQuickSort = 0;
+        //MAIN QUICK SORT
+        public int[] quickSort(int[] arrayOfIntegers, int start, int end)
 		{
+
 			if (start < end)
 			{
 				int split = quickSortPartition(arrayOfIntegers, start, end);
 				quickSort(arrayOfIntegers, start, split - 1);
 				quickSort(arrayOfIntegers, split + 1, end);
+				passCountQuickSort++;
 			}
-			return arrayOfIntegers;
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Quick sort pass count is " + passCountQuickSort);
+            Console.WriteLine("-------------------------");
+            return arrayOfIntegers;
 		}
 	}
 }
