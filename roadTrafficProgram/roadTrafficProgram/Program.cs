@@ -32,6 +32,47 @@ namespace roadTrafficProgram
             int[] Road_2_2048_textfile = road_2_2048.readFiles("Road_2_2048");
             int[] Road_3_2048_textfile = road_3_2048.readFiles("Road_3_2048");
 
+
+            static void orderMenu(int[] arrayOfIntegers) //function for ascending+descending
+            {
+                bool validSortOrder = true;
+                while (validSortOrder = true)
+                {
+                    Console.WriteLine("\n--SELECT SORT ORDER--");
+                    Console.WriteLine("1. Ascending");
+                    Console.WriteLine("2. Descending");
+                    Console.WriteLine("3. Quit");
+                    Console.WriteLine("Enter a value from 1-3");
+                    string orderChoice = Console.ReadLine();
+                    /*
+                    if (orderChoice == "1") //output ascending
+                    {
+                        foreach (int element in arrayOfIntegers)
+                        {
+                            Console.WriteLine(element);
+                        }
+                        break;
+                    }
+                    else if (orderChoice == "2") //output descending
+                    {
+                        int[] reversedArrayOfIntegers = ReverseArray.reverseTheArray(arrayOfIntegers);
+
+                        foreach (int element in reversedArrayOfIntegers)
+                        {
+                            Console.WriteLine(element);
+                        }
+                    }
+                    else if (orderChoice == "3")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a value from 1-3");
+                    }
+                    */
+                }
+            }
             //iterates through the array to output all values, otherwise it outputs System.string[]
             /*
             foreach (var value in Road_1_256_textfile)
@@ -97,6 +138,7 @@ namespace roadTrafficProgram
 
 
 
+
             bool validSortFlag = true;
             
             while (validSortFlag = true)
@@ -106,14 +148,14 @@ namespace roadTrafficProgram
                 //SORT CHOICE
                 //Console.Clear(); //clear the console for each main menu output
                 Console.WriteLine("\n--SELECT SORT--");
-                Console.WriteLine("1. Bubble sort"); //all ascending
+                Console.WriteLine("1. Bubble sort"); 
                 Console.WriteLine("2. Insertion sort");
                 Console.WriteLine("3. Merge Sort");
                 Console.WriteLine("4. Quick Sort");
                 Console.WriteLine("Enter a value from 1-4");
                 string sortChoice = Console.ReadLine();
 
-                if (sortChoice == "1") //bubble sort
+                if (sortChoice == "1") //BUBBLE SORT
                 {
                     //Console.Clear(); //clear the console for each main menu output         
                     while (validFileFlag = true)
@@ -133,6 +175,7 @@ namespace roadTrafficProgram
                         {
                             sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                             a_road_1_256.bubbleSort(Road_1_256_textfile);
+                            orderMenu(Road_1_256_textfile);
                             //validFileFlag = false;
                             break; //setting the flag to exit the nested while loop does not work as expected
                         }
@@ -177,7 +220,7 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                else if (sortChoice == "2") //insertion sort
+                else if (sortChoice == "2") //INSERTION SORT
                 {
                     
 
@@ -236,7 +279,7 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                else if (sortChoice == "3") //merge sort
+                else if (sortChoice == "3") //MERGE SORT
                 {
                     while (validFileFlag = true)
                     {
@@ -292,7 +335,7 @@ namespace roadTrafficProgram
                         }
                     }
                 }
-                else if (sortChoice == "4") //quick sort
+                else if (sortChoice == "4") //QUICK SORT
                 {
                     while (validFileFlag = true)
                     {
@@ -310,10 +353,12 @@ namespace roadTrafficProgram
                         {
                             sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                             a_road_1_256.quickSort(Road_1_256_textfile, 0, 255);
+                            /*
                             foreach (var element in Road_1_256_textfile)
                             {
                                 Console.WriteLine(element);
                             }
+                            */
                             break;
                         }
                         else if (fileChoice == "2")

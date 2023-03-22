@@ -176,14 +176,14 @@ namespace roadTrafficProgram
 		{
 			if (left < right)
 			{
-				mergeCounter++;
+				
 				int middle = left + (right - left) / 2;
 				mergeSort(arrayOfIntegers, left, middle);
 				mergeSort(arrayOfIntegers, middle + 1, right);
 
 				mergeArray(arrayOfIntegers, left, middle, right);
-
-			}
+                mergeCounter++;
+            }
             Console.WriteLine("-------------------------");
             Console.WriteLine("Ascending merge sort pass count is " + mergeCounter);
             Console.WriteLine("-------------------------");
