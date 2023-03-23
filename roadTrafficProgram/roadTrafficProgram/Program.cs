@@ -13,7 +13,6 @@ namespace roadTrafficProgram
         static void Main(string[] args)
         {
             //initialise road txt files
-
             ReadTextFiles road_1_256 = new ReadTextFiles();
             ReadTextFiles road_2_256 = new ReadTextFiles();
             ReadTextFiles road_3_256 = new ReadTextFiles();
@@ -55,7 +54,7 @@ namespace roadTrafficProgram
                         }
                         else
                         {
-                            orderMenu(arrayOfIntegers);
+                            orderMenu(arrayOfIntegers); //calls itself to start again
                         }
                     }
                     catch
@@ -68,8 +67,7 @@ namespace roadTrafficProgram
             }
 
             bool validSortFlag = true;
-
-            bool initialMenuFlag = true;
+            bool initialMenuFlag = true; //first menu
             int userOrderChoice;
             
 
@@ -78,7 +76,7 @@ namespace roadTrafficProgram
                 Console.WriteLine("\nWelcome!\n\n--SELECT ACTION--"); //searching only is after the array is sorted
                 Console.WriteLine("\n(You can choose to search after sorting the files.)\n");
                 Console.WriteLine("1. Sort");
-                Console.WriteLine("2. Output every 10th value (for 256 lined textfiles)");
+                Console.WriteLine("2. Output every 10th value (for 256 lines textfiles)");
                 Console.WriteLine("3. Output every 50th value (for 2048 lines textfiles)");
                 Console.WriteLine("4. Merge Road_1_256.txt and Road_3_256");
                 Console.WriteLine("5. Merge Road_1_2048.txt and Road_3_2048");
@@ -93,13 +91,14 @@ namespace roadTrafficProgram
                     {
                         bool validFileFlag = true; //initialise to allow for a different file to be sorted
                                                    //SORT CHOICE
-                                                   //Console.Clear(); //clear the console for each main menu output
+                                                   
                         Console.WriteLine("\n--SELECT SORT--");
                         Console.WriteLine("1. Bubble sort");
                         Console.WriteLine("2. Insertion sort");
                         Console.WriteLine("3. Merge Sort");
                         Console.WriteLine("4. Quick Sort");
-                        Console.Write("Enter a value from 1-4.\n>");
+                        Console.WriteLine("5. Back");
+                        Console.Write("Enter a value from 1-5.\n>");
                         string sortChoice = Console.ReadLine();
 
                         if (sortChoice == "1") //BUBBLE SORT
@@ -126,11 +125,18 @@ namespace roadTrafficProgram
 
                                     userOrderChoice = orderMenu(Road_1_256_textfile);
 
-                                    if (userOrderChoice == 1) //ascending
+                                    if (userOrderChoice == 1) //ascending bubble sort
                                     {
                                         a_road_1_256.bubbleSort(Road_1_256_textfile);
 
-                                        Console.WriteLine("--Choose which search to use--");
+                                        Console.WriteLine("\nOutputting every 10th value:"); //outputs every 10th value
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_1_256_textfile[i] + "  ");
+                                        }
+
+                                        Console.WriteLine("\n--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
                                         Console.WriteLine("3. Quit");
@@ -140,15 +146,19 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
-                                        if (searchChoice == "1")
+                                        if (searchChoice == "1") //linear search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
-                                        else if (searchChoice == "2")
+                                        else if (searchChoice == "2") //binary search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -159,11 +169,18 @@ namespace roadTrafficProgram
                                             Console.WriteLine("Invalid input, try again.\n");
                                         }
                                     }
-                                    else if (userOrderChoice == 2) //descending
+                                    else if (userOrderChoice == 2) //descending bubble sort
                                     {
                                         a_road_1_256.reverseBubbleSort(Road_1_256_textfile);
 
-                                        Console.WriteLine("--Choose which search to use--");
+                                        Console.WriteLine("\nOutputting every 10th value:"); //output every 10th value
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_1_256_textfile[i] + "  ");
+                                        }
+
+                                        Console.WriteLine("\n--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
                                         Console.WriteLine("3. Quit");
@@ -173,15 +190,19 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
-                                        if (searchChoice == "1")
+                                        if (searchChoice == "1") //linear search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
-                                        else if (searchChoice == "2")
+                                        else if (searchChoice == "2") //binary search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -204,11 +225,17 @@ namespace roadTrafficProgram
                                     sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
 
                                     userOrderChoice = orderMenu(Road_2_256_textfile);
-                                    if (userOrderChoice == 1) //ascending
+                                    if (userOrderChoice == 1) //ascending bubble sort
                                     {
                                         a_road_2_256.bubbleSort(Road_2_256_textfile);
 
-                                        Console.WriteLine("--Choose which search to use--");
+                                        Console.WriteLine("\nOutputting every 10th value:");
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_2_256_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
                                         Console.WriteLine("3. Quit");
@@ -218,15 +245,19 @@ namespace roadTrafficProgram
                                         Console.Write("Enter an item to search for\n>");
                                         string itemToSearch = Console.ReadLine();
 
-                                        if (searchChoice == "1")
+                                        if (searchChoice == "1") //linear search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
-                                        else if (searchChoice == "2")
+                                        else if (searchChoice == "2") //binary search
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -241,7 +272,14 @@ namespace roadTrafficProgram
                                     {
                                         a_road_2_256.reverseBubbleSort(Road_2_256_textfile);
 
-                                        Console.WriteLine("--Choose which search to use--");
+                                        Console.WriteLine("\nOutputting every 10th value:");
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_2_256_textfile[i] + " , ");
+                                        }
+
+                                        Console.WriteLine("\n--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
                                         Console.WriteLine("3. Quit");
@@ -255,11 +293,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -284,6 +326,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_3_256.bubbleSort(Road_3_256_textfile);
 
+                                        Console.WriteLine("\nOutputting every 10th value:");
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_3_256_textfile[i] + "  ");
+                                        }
+
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -298,11 +347,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -317,6 +370,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_3_256.reverseBubbleSort(Road_3_256_textfile);
 
+                                        Console.WriteLine("\nOutputting every 10th value:");
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
+                                        {
+
+                                            Console.Write(Road_3_256_textfile[i] + "  ");
+                                        }
+
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -331,11 +391,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -360,6 +424,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_1_2048.bubbleSort(Road_1_2048_textfile);
 
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_1_2048_textfile[i] + "  ");
+                                        }
+
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -374,11 +445,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -393,6 +468,12 @@ namespace roadTrafficProgram
                                     {
                                         a_road_1_2048.reverseBubbleSort(Road_1_2048_textfile);
 
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_1_2048_textfile[i] + "  ");
+                                        }
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -407,11 +488,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -436,6 +521,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_2_2048.bubbleSort(Road_2_2048_textfile);
 
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_2_2048_textfile[i] + "  ");
+                                        }
+
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -450,11 +542,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -470,6 +566,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_2_2048.reverseBubbleSort(Road_2_2048_textfile);
 
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_2_2048_textfile[i] + "  "); 
+                                        }
+
                                         Console.WriteLine("--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
@@ -484,11 +587,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -514,7 +621,13 @@ namespace roadTrafficProgram
                                     {
                                         a_road_3_2048.bubbleSort(Road_3_2048_textfile);
 
-                                        Console.WriteLine("--Choose which search to use--");
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_3_2048_textfile[i] + "  ");
+                                        }
+                                        Console.WriteLine("\n--Choose which search to use--");
                                         Console.WriteLine("1. Linear search");
                                         Console.WriteLine("2. Binary search");
                                         Console.WriteLine("3. Quit");
@@ -528,11 +641,15 @@ namespace roadTrafficProgram
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "2")
                                         {
                                             searchingAlgorithms s = new searchingAlgorithms();
                                             s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
                                         }
                                         else if (searchChoice == "3")
                                         {
@@ -546,6 +663,47 @@ namespace roadTrafficProgram
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_3_2048.reverseBubbleSort(Road_3_2048_textfile);
+
+                                        Console.WriteLine("\nOutputting every 50th value:");
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
+                                        {
+
+                                            Console.Write(Road_3_2048_textfile[i] + "  ");
+                                        }
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
+
                                     }
                                     else if (userOrderChoice == 3) //quit
                                     {
@@ -589,7 +747,8 @@ namespace roadTrafficProgram
                                     {
                                         a_road_1_256.insertionSort(Road_1_256_textfile);
 
-                                        for (int i = 0; i < Road_1_256_textfile.Length; i++)
+                                        Console.WriteLine("\nOutputting every 10th value: ");
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i+=10)
                                         {
                                             Console.Write(Road_1_256_textfile[i] + "  ");
                                         }
@@ -599,11 +758,11 @@ namespace roadTrafficProgram
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_1_256.reverseInsertionSort(Road_1_256_textfile);
-                                        for (int i = 0; i < Road_1_256_textfile.Length; i++)
+                                        Console.WriteLine("\nOutputting every 10th value: ");
+                                        for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
                                         {
                                             Console.Write(Road_1_256_textfile[i] + "  ");
                                         }
-                                        Console.WriteLine("\n");
                                         break;
                                     }
                                     else if (userOrderChoice == 3) //quit
@@ -615,12 +774,13 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
 
-                                    userOrderChoice = orderMenu(Road_1_256_textfile);
+                                    userOrderChoice = orderMenu(Road_2_256_textfile);
 
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_2_256.insertionSort(Road_2_256_textfile);
-                                        for (int i = 0; i < Road_2_256_textfile.Length; i++)
+                                        Console.WriteLine("Outputting every 10th value: ");
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
                                         {
                                             Console.Write(Road_2_256_textfile[i] + "  ");
                                         }
@@ -630,7 +790,8 @@ namespace roadTrafficProgram
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_2_256.reverseInsertionSort(Road_2_256_textfile);
-                                        for (int i = 0; i < Road_2_256_textfile.Length; i++)
+                                        Console.WriteLine("\nOOutputting every 10th value: ");
+                                        for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
                                         {
                                             Console.Write(Road_2_256_textfile[i] + "  ");
                                         }
@@ -646,12 +807,13 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
 
-                                    userOrderChoice = orderMenu(Road_1_256_textfile);
+                                    userOrderChoice = orderMenu(Road_3_256_textfile);
 
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_3_256.insertionSort(Road_3_256_textfile);
-                                        for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                                        Console.WriteLine("Outputting every 10th value: ");
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
                                         {
                                             Console.Write(Road_3_256_textfile[i] + "  ");
                                         }
@@ -661,7 +823,8 @@ namespace roadTrafficProgram
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_3_256.reverseInsertionSort(Road_3_256_textfile);
-                                        for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                                        Console.WriteLine("\nOOutputting every 10th value: ");
+                                        for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
                                         {
                                             Console.Write(Road_3_256_textfile[i] + "  ");
                                         }
@@ -677,26 +840,93 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
 
-                                    userOrderChoice = orderMenu(Road_1_256_textfile);
+                                    userOrderChoice = orderMenu(Road_1_2048_textfile);
 
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_1_2048.insertionSort(Road_1_2048_textfile);
-                                        for (int i = 0; i < Road_1_2048_textfile.Length; i++)
+                                        Console.WriteLine("Outputting every 50th value: ");
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_1_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_1_2048.reverseInsertionSort(Road_1_2048_textfile);
-                                        for (int i = 0; i < Road_1_2048_textfile.Length; i++)
+                                        Console.WriteLine("\nOOutputting every 50th value: ");
+                                        for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_1_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 3) //quit
@@ -708,26 +938,94 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
 
-                                    userOrderChoice = orderMenu(Road_1_256_textfile);
+                                    userOrderChoice = orderMenu(Road_2_2048_textfile);
 
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_2_2048.insertionSort(Road_2_2048_textfile);
-                                        for (int i = 0; i < Road_2_2048_textfile.Length; i++)
+                                        Console.WriteLine("Outputting every 50th value: ");
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_2_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_2_2048.reverseInsertionSort(Road_2_2048_textfile);
-                                        for (int i = 0; i < Road_2_2048_textfile.Length; i++)
+                                        Console.WriteLine("\nOOutputting every 50th value: ");
+                                        for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_2_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 3) //quit
@@ -739,26 +1037,94 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
 
-                                    userOrderChoice = orderMenu(Road_1_256_textfile);
+                                    userOrderChoice = orderMenu(Road_3_2048_textfile);
 
                                     if (userOrderChoice == 1) //ascending
                                     {
                                         a_road_3_2048.insertionSort(Road_3_2048_textfile);
-                                        for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                                        Console.WriteLine("\nOutputting every 50th value: ");
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_3_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 2) //descending
                                     {
                                         a_road_3_2048.reverseInsertionSort(Road_3_2048_textfile);
-                                        for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                                        Console.WriteLine("\nOutputting every 50th value: ");
+                                        for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
                                         {
                                             Console.Write(Road_3_2048_textfile[i] + "  ");
                                         }
                                         Console.WriteLine("\n");
+
+                                        Console.WriteLine("\n--Choose which search to use--");
+                                        Console.WriteLine("1. Linear search");
+                                        Console.WriteLine("2. Binary search");
+                                        Console.WriteLine("3. Quit");
+                                        Console.Write("Enter an option 1-3\n>");
+                                        string searchChoice = Console.ReadLine();
+
+                                        Console.Write("Enter an item to search for\n>");
+                                        string itemToSearch = Console.ReadLine();
+
+                                        if (searchChoice == "1")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "2")
+                                        {
+                                            searchingAlgorithms s = new searchingAlgorithms();
+                                            s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                            break;
+                                        }
+                                        else if (searchChoice == "3")
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input, try again.\n");
+                                        }
                                         break;
                                     }
                                     else if (userOrderChoice == 3) //quit
@@ -797,36 +1163,264 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                                     a_road_1_256.mergeSort(Road_1_256_textfile, 0, 255);
+
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
+                                    {
+                                        Console.Write(Road_1_256_textfile[i] + "  ");
+                                    }
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "2")
                                 {
                                     sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
                                     a_road_2_256.mergeSort(Road_2_256_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
+                                    {
+                                        Console.Write(Road_2_256_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "3")
                                 {
                                     sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
                                     a_road_3_256.mergeSort(Road_3_256_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
+                                    {
+                                        Console.Write(Road_3_256_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "4")
                                 {
                                     sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
                                     a_road_1_2048.mergeSort(Road_1_2048_textfile, 0, 2047);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_1_2048_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "5")
                                 {
                                     sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
                                     a_road_2_2048.mergeSort(Road_2_2048_textfile, 0, 2047);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_2_2048_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "6")
                                 {
                                     sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
                                     a_road_3_2048.mergeSort(Road_3_2048_textfile, 0, 2047);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_1_2048_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "7")
@@ -859,42 +1453,263 @@ namespace roadTrafficProgram
                                 {
                                     sortingAlgorithms a_road_1_256 = new sortingAlgorithms();
                                     a_road_1_256.quickSort(Road_1_256_textfile, 0, 255);
-                                    /*
-                                    foreach (var element in Road_1_256_textfile)
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_1_256_textfile.Length; i += 10)
                                     {
-                                        Console.WriteLine(element);
+                                        Console.Write(Road_1_256_textfile[i] + "  ");
                                     }
-                                    */
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "2")
                                 {
                                     sortingAlgorithms a_road_2_256 = new sortingAlgorithms();
                                     a_road_2_256.quickSort(Road_2_256_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_2_256_textfile.Length; i += 10)
+                                    {
+                                        Console.Write(Road_2_256_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "3")
                                 {
                                     sortingAlgorithms a_road_3_256 = new sortingAlgorithms();
                                     a_road_3_256.quickSort(Road_3_256_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 10th value: ");
+                                    for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
+                                    {
+                                        Console.Write(Road_3_256_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "4")
                                 {
                                     sortingAlgorithms a_road_1_2048 = new sortingAlgorithms();
                                     a_road_1_2048.quickSort(Road_1_2048_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_1_2048_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "5")
                                 {
                                     sortingAlgorithms a_road_2_2048 = new sortingAlgorithms();
                                     a_road_2_2048.quickSort(Road_2_2048_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_2_2048_textfile[i] + "  ");
+                                    }
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "6")
                                 {
                                     sortingAlgorithms a_road_3_2048 = new sortingAlgorithms();
                                     a_road_3_2048.quickSort(Road_3_2048_textfile, 0, 255);
+                                    Console.WriteLine("\nOutputting every 50th value: ");
+                                    for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
+                                    {
+                                        Console.Write(Road_3_2048_textfile[i] + "  ");
+                                    }
+
+                                    Console.WriteLine("\n--Choose which search to use--");
+                                    Console.WriteLine("1. Linear search");
+                                    Console.WriteLine("2. Binary search");
+                                    Console.WriteLine("3. Quit");
+                                    Console.Write("Enter an option 1-3\n>");
+                                    string searchChoice = Console.ReadLine();
+
+                                    Console.Write("Enter an item to search for\n>");
+                                    string itemToSearch = Console.ReadLine();
+
+                                    if (searchChoice == "1")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "2")
+                                    {
+                                        searchingAlgorithms s = new searchingAlgorithms();
+                                        s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                        break;
+                                    }
+                                    else if (searchChoice == "3")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input, try again.\n");
+                                    }
                                     break;
                                 }
                                 else if (fileChoice == "7")
@@ -906,6 +1721,14 @@ namespace roadTrafficProgram
                                     Console.WriteLine("Invalid input, try again.\n");
                                 }
                             }
+                        }
+                        else if (sortChoice == "5")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nInvalid input, try again.\n");
                         }
                     }
                 }
@@ -937,6 +1760,40 @@ namespace roadTrafficProgram
 
                                 Console.Write(Road_1_256_textfile[i] + " , ");
                             }
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
+                            }
+
+
                         }
                         else if (userOrderChoice == 2) //descending 10 values
                         {
@@ -946,6 +1803,39 @@ namespace roadTrafficProgram
                             {
 
                                 Console.Write(Road_1_256_textfile[i] + " , ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3) //quit to main menu
@@ -972,6 +1862,39 @@ namespace roadTrafficProgram
 
                                 Console.Write(Road_2_256_textfile[i] + " , ");
                             }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
+                            }
                         }
                         else if (userOrderChoice == 2) //descending 10th values
                         {
@@ -981,6 +1904,39 @@ namespace roadTrafficProgram
                             {
 
                                 Console.Write(Road_2_256_textfile[i] + " , ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3) //quit
@@ -1005,7 +1961,40 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_3_256_textfile.Length; i += 10)
                             {
 
-                                Console.Write(Road_3_256_textfile[i] + " , ");
+                                Console.Write(Road_3_256_textfile[i] + "  ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 2) //descending 10th values
@@ -1016,6 +2005,39 @@ namespace roadTrafficProgram
                             {
 
                                 Console.Write(Road_3_256_textfile[i] + " , ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_256_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3)
@@ -1063,7 +2085,40 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_1_2048_textfile[i] + " , ");
+                                Console.Write(Road_1_2048_textfile[i] + "  ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 2) //descending 50th values
@@ -1073,7 +2128,40 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_1_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_1_2048_textfile[i] + " , ");
+                                Console.Write(Road_1_2048_textfile[i] + "  ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_1_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3)
@@ -1099,7 +2187,40 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_2_2048_textfile[i] + " , ");
+                                Console.Write(Road_2_2048_textfile[i] + "  ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 2) //descending 50th values
@@ -1109,7 +2230,39 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_2_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_2_2048_textfile[i] + " , ");
+                                Console.Write(Road_2_2048_textfile[i] + "  ");
+                            }
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_2_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3)
@@ -1135,7 +2288,39 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_3_256_textfile[i] + " , ");
+                                Console.Write(Road_3_2048_textfile[i] + "  ");
+                            }
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 2) //descending 50th values
@@ -1144,7 +2329,40 @@ namespace roadTrafficProgram
                             for (int i = 0; i < Road_3_2048_textfile.Length; i += 50)
                             {
 
-                                Console.Write(Road_3_2048_textfile[i] + " , ");
+                                Console.Write(Road_3_2048_textfile[i] + "  ");
+                            }
+
+                            Console.WriteLine("\n--Choose which search to use--");
+                            Console.WriteLine("1. Linear search");
+                            Console.WriteLine("2. Binary search");
+                            Console.WriteLine("3. Quit");
+                            Console.Write("Enter an option 1-3\n>");
+                            string searchChoice = Console.ReadLine();
+
+                            Console.Write("Enter an item to search for\n>");
+                            string itemToSearch = Console.ReadLine();
+
+                            if (searchChoice == "1")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.linearSearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "2")
+                            {
+                                searchingAlgorithms s = new searchingAlgorithms();
+                                s.binarySearch(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                searchingAlgorithms.findDupes(Road_3_2048_textfile, Int32.Parse(itemToSearch));
+                                break;
+                            }
+                            else if (searchChoice == "3")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input, try again.\n");
                             }
                         }
                         else if (userOrderChoice == 3)
@@ -1167,10 +2385,10 @@ namespace roadTrafficProgram
                 }
 //-----------------------------------------------------------------------------
                 else if (initialChoice == "4") //MERGE ROAD1 and ROAD3 256
-                {
-                    int[] merge_Road_256 = Road_1_256_textfile;
+                { 
+                    int[] merge_Road_256 = Road_1_256_textfile; //new array for the merged array
 
-                    for (int i = 0; i < Road_3_256_textfile.Length; i++)
+                    for (int i = 0; i < Road_3_256_textfile.Length; i++)//merging the arrays by appending each element of one to the other
                     {
                         merge_Road_256.Append(Road_3_256_textfile[i]);
                     }
@@ -1195,12 +2413,12 @@ namespace roadTrafficProgram
                     Console.ReadKey();
                 }
 //-----------------------------------------------------------------------------
-                else if (initialChoice == "5") //MERGE RAOD1 AND ROAD3 2048
+                else if (initialChoice == "5") //MERGE ROAD1 AND ROAD3 2048
                 {
-                    int[] merge_Road_2048 = Road_1_2048_textfile;
+                    int[] merge_Road_2048 = Road_1_2048_textfile; //new array for the merged array
                     sortingAlgorithms a_merged_road_3_2048 = new sortingAlgorithms();
 
-                    for (int i = 0; i < Road_3_2048_textfile.Length; i++)
+                    for (int i = 0; i < Road_3_2048_textfile.Length; i++)//merging the arrays by appending each element of one to the other
                     {
                         merge_Road_2048.Append(Road_3_2048_textfile[i]);
                     }
@@ -1209,16 +2427,80 @@ namespace roadTrafficProgram
                     if (userOrderChoice == 1) //asc
                     {
                         a_merged_road_3_2048.insertionSort(merge_Road_2048);
+
+                        Console.WriteLine("\n--Choose which search to use--");
+                        Console.WriteLine("1. Linear search");
+                        Console.WriteLine("2. Binary search");
+                        Console.WriteLine("3. Quit");
+                        Console.Write("Enter an option 1-3\n>");
+                        string searchChoice = Console.ReadLine();
+
+                        Console.Write("Enter an item to search for\n>");
+                        string itemToSearch = Console.ReadLine();
+
+                        if (searchChoice == "1") //linear search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.linearSearch(merge_Road_2048, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "2") //binary search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.binarySearch(merge_Road_2048, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "3")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input, try again.\n");
+                        }
                     }
                     else if (userOrderChoice == 2) //desc
                     {
                         a_merged_road_3_2048.reverseInsertionSort(merge_Road_2048);
+
+
+                        Console.WriteLine("\n--Choose which search to use--");
+                        Console.WriteLine("1. Linear search");
+                        Console.WriteLine("2. Binary search");
+                        Console.WriteLine("3. Quit");
+                        Console.Write("Enter an option 1-3\n>");
+                        string searchChoice = Console.ReadLine();
+
+                        Console.Write("Enter an item to search for\n>");
+                        string itemToSearch = Console.ReadLine();
+
+                        if (searchChoice == "1") //linear
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.linearSearch(merge_Road_2048, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "2") //binary
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.binarySearch(merge_Road_2048, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "3")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input, try again.\n");
+                        }
                     }
 
-                    foreach (var value in merge_Road_2048)
-                    {
-                        Console.Write(value + "  ");
-                    }
+
 
                     Console.Write("\n\nPress any key to continue to the menu.\n");
                     Console.ReadKey();

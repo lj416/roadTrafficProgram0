@@ -4,14 +4,14 @@ namespace roadTrafficProgram
 	public class searchingAlgorithms
 	{
 
-		public void linearSearch(int[] arrayOfIntegers, int itemSought)
+		public void linearSearch(int[] arrayOfIntegers, int itemSought) 
 		{
 			bool itemFound = false; //flag to indicate whether found
-			for (int i = 0; i < arrayOfIntegers.Length; i++)
+			for (int i = 0; i < arrayOfIntegers.Length; i++) //iterates through the whole list rather then stopping when itemSough is found
 			{
 				if (arrayOfIntegers[i] == itemSought)
 				{
-					Console.WriteLine(itemSought+" is found at "+i);
+					//Console.WriteLine(itemSought+" is found at "+i+".");
 					itemFound = true;
 				}
 			}
@@ -51,9 +51,45 @@ namespace roadTrafficProgram
 					}
 				}
 			}
-			Console.WriteLine("The item is found at position: "+index);
+			//Console.WriteLine("The item is found at position: "+index);
 			return index;
 		}
+
+		public static void findDupes(int[] arrayOfIntegers, int itemSought)
+		{
+			bool foundFlag = false;
+
+            for (int i = 0; i < arrayOfIntegers.Length; i++)
+            {
+                if (arrayOfIntegers[i] == itemSought)
+                {
+                    Console.WriteLine(itemSought + " is found at " + i);
+                    foundFlag = true;
+                }
+
+            }
+
+			if (foundFlag == false)
+			{
+				Console.WriteLine("Value not found in list.");
+
+				int nearestItem = arrayOfIntegers.Aggregate((x, y) => Math.Abs(x - itemSought) < Math.Abs(y - itemSought) ? x : y);
+
+				Console.WriteLine(nearestItem);
+
+				for (int j = 0; j < arrayOfIntegers.Length; j++)
+				{
+					if (nearestItem == arrayOfIntegers[j])
+					{
+						Console.WriteLine(nearestItem+" is found at position "+j);
+						foundFlag = true;
+					}
+				}
+			}
+
+        }
+
+
 
 	}
 }
