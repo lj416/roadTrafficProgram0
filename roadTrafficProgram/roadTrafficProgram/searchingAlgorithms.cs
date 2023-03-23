@@ -52,7 +52,7 @@ namespace roadTrafficProgram
 				}
 				counter++;
 			}
-			Console.WriteLine("Binary search passes: "+counter);
+			Console.WriteLine("\nBinary search passes: "+counter);
 			//Console.WriteLine("The item is found at position: "+index);
 			return index;
 		}

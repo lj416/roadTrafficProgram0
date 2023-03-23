@@ -2402,7 +2402,7 @@ namespace roadTrafficProgram
                         Console.WriteLine("Outputting every 10th value.");
                         for (int i = 0; i < merge_Road_256.Length; i += 10)
                         {
-                            Console.WriteLine(merge_Road_256[i]);
+                            Console.Write(merge_Road_256[i]+ "  ");
                         }
 
                         Console.WriteLine("\n--Choose which search to use--");
@@ -2441,6 +2441,12 @@ namespace roadTrafficProgram
                     else if (userOrderChoice == 2) //desc
                     {
                         a_merged_road_3_256.reverseInsertionSort(merge_Road_256);
+
+                        Console.WriteLine("Outputting every 10th value.");
+                        for (int i = 0; i < merge_Road_256.Length; i += 10)
+                        {
+                            Console.Write(merge_Road_256[i] + "  ");
+                        }
 
                         Console.WriteLine("\n--Choose which search to use--");
                         Console.WriteLine("1. Linear search");
@@ -2495,16 +2501,18 @@ namespace roadTrafficProgram
                         merge_Road_2048.Append(Road_3_2048_textfile[i]);
                     }
 
-                    Console.WriteLine("Outputting every 50th value.");
-                    for (int i = 0; i < merge_Road_2048.Length; i += 50)
-                    {
-                        Console.WriteLine(merge_Road_2048[i]);
-                    }
+
                     userOrderChoice = orderMenu(merge_Road_2048);
 
                     if (userOrderChoice == 1) //asc
                     {
                         a_merged_road_3_2048.insertionSort(merge_Road_2048);
+
+                        Console.WriteLine("Outputting every 50th value.");
+                        for (int i = 0; i < merge_Road_2048.Length; i += 50)
+                        {
+                            Console.Write(merge_Road_2048[i] + "  ");
+                        }
 
                         Console.WriteLine("\n--Choose which search to use--");
                         Console.WriteLine("1. Linear search");
@@ -2542,7 +2550,11 @@ namespace roadTrafficProgram
                     else if (userOrderChoice == 2) //desc
                     {
                         a_merged_road_3_2048.reverseInsertionSort(merge_Road_2048);
-
+                        Console.WriteLine("Outputting every 50th value.");
+                        for (int i = 0; i < merge_Road_2048.Length; i += 50)
+                        {
+                            Console.Write(merge_Road_2048[i] + "  ");
+                        }
 
                         Console.WriteLine("\n--Choose which search to use--");
                         Console.WriteLine("1. Linear search");

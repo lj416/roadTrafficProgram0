@@ -21,14 +21,14 @@ namespace roadTrafficProgram
 
 			for (int i = 0; i < lengthOfList - 1; i++)
 			{
-				for (int j = 0; j < lengthOfList - i - 1; j++)
+				for (int j = 0; j < lengthOfList - i - 1; j++) //checks the element to the "left" of element at index i
 				{
 					if (arrayOfIntegers[j] > arrayOfIntegers[j + 1])
 					{
-                        int temp = arrayOfIntegers[j];
+                        int temp = arrayOfIntegers[j]; //temp value for swapping
 						arrayOfIntegers[j] = arrayOfIntegers[j + 1];
 						arrayOfIntegers[j + 1] = temp;
-						passCount = passCount + 1;
+						passCount = passCount + 1; //counter
 
 					}
 				}
@@ -50,7 +50,7 @@ namespace roadTrafficProgram
 
             for (int i = 0; i < lengthOfList - 1; i++)
             {
-                for (int j = 0; j < lengthOfList - i - 1; j++)
+                for (int j = 0; j < lengthOfList - i - 1; j++) //< operator is the difference to make it 
                 {
                     if (arrayOfIntegers[j] < arrayOfIntegers[j + 1])
                     {
