@@ -29,7 +29,7 @@ namespace roadTrafficProgram
 			int index = -1;
 			int first = 0;
 			int last = aList.Length - 1;
-
+			int counter = 0;
 			while (first <= last && found == false)
 			{
 				int midpoint = ((first + last) / 2);
@@ -50,7 +50,9 @@ namespace roadTrafficProgram
 						last = midpoint - 1;
 					}
 				}
+				counter++;
 			}
+			Console.WriteLine("Binary search passes: "+counter);
 			//Console.WriteLine("The item is found at position: "+index);
 			return index;
 		}

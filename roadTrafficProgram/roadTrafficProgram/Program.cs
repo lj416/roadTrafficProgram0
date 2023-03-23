@@ -2398,10 +2398,82 @@ namespace roadTrafficProgram
                     if (userOrderChoice == 1) //asc
                     {
                         a_merged_road_3_256.insertionSort(merge_Road_256);
+
+                        Console.WriteLine("Outputting every 10th value.");
+                        for (int i = 0; i < merge_Road_256.Length; i += 10)
+                        {
+                            Console.WriteLine(merge_Road_256[i]);
+                        }
+
+                        Console.WriteLine("\n--Choose which search to use--");
+                        Console.WriteLine("1. Linear search");
+                        Console.WriteLine("2. Binary search");
+                        Console.WriteLine("3. Quit");
+                        Console.Write("Enter an option 1-3\n>");
+                        string searchChoice = Console.ReadLine();
+
+                        Console.Write("Enter an item to search for\n>");
+                        string itemToSearch = Console.ReadLine();
+
+                        if (searchChoice == "1") //linear search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.linearSearch(merge_Road_256, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_256, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "2") //binary search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.binarySearch(merge_Road_256, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_256, Int32.Parse(itemToSearch));
+                            break;
+                        }
+                        else if (searchChoice == "3")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input, try again.\n");
+                        }
                     }
                     else if (userOrderChoice == 2) //desc
                     {
                         a_merged_road_3_256.reverseInsertionSort(merge_Road_256);
+
+                        Console.WriteLine("\n--Choose which search to use--");
+                        Console.WriteLine("1. Linear search");
+                        Console.WriteLine("2. Binary search");
+                        Console.WriteLine("3. Quit");
+                        Console.Write("Enter an option 1-3\n>");
+                        string searchChoice = Console.ReadLine();
+
+                        Console.Write("Enter an item to search for\n>");
+                        string itemToSearch = Console.ReadLine();
+
+                        if (searchChoice == "1") //linear search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.linearSearch(merge_Road_256, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_256, Int32.Parse(itemToSearch));
+                            //break;
+                        }
+                        else if (searchChoice == "2") //binary search
+                        {
+                            searchingAlgorithms s = new searchingAlgorithms();
+                            s.binarySearch(merge_Road_256, Int32.Parse(itemToSearch));
+                            searchingAlgorithms.findDupes(merge_Road_256, Int32.Parse(itemToSearch));
+                            //break;
+                        }
+                        else if (searchChoice == "3")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input, try again.\n");
+                        }
                     }
 
                     foreach (var value in merge_Road_256)
@@ -2421,6 +2493,12 @@ namespace roadTrafficProgram
                     for (int i = 0; i < Road_3_2048_textfile.Length; i++)//merging the arrays by appending each element of one to the other
                     {
                         merge_Road_2048.Append(Road_3_2048_textfile[i]);
+                    }
+
+                    Console.WriteLine("Outputting every 50th value.");
+                    for (int i = 0; i < merge_Road_2048.Length; i += 50)
+                    {
+                        Console.WriteLine(merge_Road_2048[i]);
                     }
                     userOrderChoice = orderMenu(merge_Road_2048);
 
@@ -2443,14 +2521,14 @@ namespace roadTrafficProgram
                             searchingAlgorithms s = new searchingAlgorithms();
                             s.linearSearch(merge_Road_2048, Int32.Parse(itemToSearch));
                             searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
-                            break;
+                            //break;
                         }
                         else if (searchChoice == "2") //binary search
                         {
                             searchingAlgorithms s = new searchingAlgorithms();
                             s.binarySearch(merge_Road_2048, Int32.Parse(itemToSearch));
                             searchingAlgorithms.findDupes(merge_Road_2048, Int32.Parse(itemToSearch));
-                            break;
+                            //break;
                         }
                         else if (searchChoice == "3")
                         {
